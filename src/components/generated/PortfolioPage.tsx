@@ -321,11 +321,23 @@ const PortfolioPage: React.FC = () => {
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </motion.button>
               
-              <motion.button whileHover={{
-              scale: 1.05
-            }} whileTap={{
-              scale: 0.95
-            }} className={`px-8 py-4 border-2 rounded-full font-medium transition-all duration-300 flex items-center ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400' : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'}`}>
+              <motion.button 
+                whileHover={{
+                  scale: 1.05
+                }} 
+                whileTap={{
+                  scale: 0.95
+                }} 
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/Prashant-Jacob-Resume.pdf';
+                  link.download = 'Prashant-Jacob-Resume.pdf';
+                  link.target = '_blank';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className={`px-8 py-4 border-2 rounded-full font-medium transition-all duration-300 flex items-center ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400' : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'}`}>
                 <Download className="mr-2" size={20} />
                 Download Resume
               </motion.button>
@@ -737,11 +749,23 @@ const PortfolioPage: React.FC = () => {
               <p className={`mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 Get a comprehensive overview of my experience, skills, and achievements.
               </p>
-              <motion.button whileHover={{
-              scale: 1.05
-            }} whileTap={{
-              scale: 0.95
-            }} className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium">
+              <motion.button 
+                whileHover={{
+                  scale: 1.05
+                }} 
+                whileTap={{
+                  scale: 0.95
+                }} 
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/Prashant-Jacob-Resume.pdf';
+                  link.download = 'Prashant-Jacob-Resume.pdf';
+                  link.target = '_blank';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium">
                 <Download size={20} className="mr-2" />
                 Download PDF
               </motion.button>
@@ -999,7 +1023,17 @@ const PortfolioPage: React.FC = () => {
                           <ExternalLink className="w-5 h-5 mr-2" />
                           <span>View My Work</span>
                         </button>
-                        <button className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        <button 
+                          onClick={() => {
+                            const link = document.createElement('a');
+                            link.href = '/Prashant-Jacob-Resume.pdf';
+                            link.download = 'Prashant-Jacob-Resume.pdf';
+                            link.target = '_blank';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                          }}
+                          className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
                           <FileText className="w-5 h-5 mr-2" />
                           <span>Download Resume</span>
                         </button>

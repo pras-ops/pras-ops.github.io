@@ -217,7 +217,17 @@ export default function TranscriptExtractorLandingPage({
               <ExternalLink className="w-5 h-5 mr-2" />
               <span>View My Work</span>
             </button>
-            <button className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+            <button 
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/Prashant-Jacob-Resume.pdf';
+                link.download = 'Prashant-Jacob-Resume.pdf';
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
               <FileText className="w-5 h-5 mr-2" />
               <span>Download Resume</span>
             </button>
