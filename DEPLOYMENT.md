@@ -47,7 +47,8 @@ git push -u origin main
    - Folder is set to "/ (root)"
 
 ### 5. Your Site Will Be Available At
-- `https://YOUR_USERNAME.github.io/`
+- `https://YOUR_USERNAME.github.io/` (GitHub Pages URL)
+- `https://prashant-j.com/` (Custom domain)
 
 ## Automatic Deployment
 The project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that will:
@@ -70,9 +71,18 @@ npm run build
 - Make sure your repository is public (required for free GitHub Pages)
 - The first deployment might take a few minutes to become available
 
-## Custom Domain (Optional)
-If you want to use a custom domain:
-1. Go to your repository Settings > Pages
-2. Add your custom domain in the "Custom domain" field
-3. Update your DNS settings to point to your GitHub Pages URL
-4. Add a `CNAME` file in your repository root with your domain name
+## Custom Domain Configuration
+This project is configured for the custom domain `prashant-j.com`:
+
+1. **CNAME file**: Automatically created during deployment in the `dist` folder
+2. **GitHub Pages settings**: 
+   - Go to your repository Settings > Pages
+   - Add `prashant-j.com` in the "Custom domain" field
+   - Enable "Enforce HTTPS"
+3. **DNS Configuration**: 
+   - Add a CNAME record pointing `prashant-j.com` to `pras-ops.github.io`
+   - Or add A records pointing to GitHub Pages IP addresses:
+     - 185.199.108.153
+     - 185.199.109.153
+     - 185.199.110.153
+     - 185.199.111.153
