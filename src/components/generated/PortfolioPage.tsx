@@ -216,7 +216,7 @@ const PortfolioPage: React.FC = () => {
           }} className="flex items-center">
                              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-600 shadow-sm">
                  <img 
-                   src="/portfolio/images/prashant-jacob-logo.jpeg" 
+                   src="/images/prashant-jacob-logo.jpeg" 
                    alt="Prashant Jacob Logo" 
                    className="w-full h-full object-cover"
                  />
@@ -287,7 +287,7 @@ const PortfolioPage: React.FC = () => {
           }} className="mb-8">
                              <div className="w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center overflow-hidden shadow-lg">
                  <img 
-                   src="/portfolio/images/prashant-jacob-logo.jpeg" 
+                   src="/images/prashant-jacob-logo.jpeg" 
                    alt="Prashant Jacob Logo" 
                    className="w-full h-full object-cover"
                  />
