@@ -1,35 +1,24 @@
 import { useMemo } from 'react';
-import { Container, Theme } from './settings/types';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PortfolioPage from './components/generated/PortfolioPage';
-
-let theme: Theme = 'dark';
-let container: Container = 'none';
+import TranscriptExtractorPage from './components/TranscriptExtractorPage';
+import { ThemeProvider } from './settings/theme';
 
 function App() {
-  function setTheme(theme: Theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
-
-  setTheme(theme);
-
   const generatedComponent = useMemo(() => {
-    // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
-    return <PortfolioPage />; // %EXPORT_STATEMENT%
+    return (
+      <ThemeProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<PortfolioPage />} />
+            <Route path="/transcript-extractor" element={<TranscriptExtractorPage />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    );
   }, []);
 
-  if (container === 'centered') {
-    return (
-      <div className="h-full w-full flex flex-col items-center justify-center">
-        {generatedComponent}
-      </div>
-    );
-  } else {
-    return generatedComponent;
-  }
+  return generatedComponent;
 }
 
 export default App;
