@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Github, Linkedin, ExternalLink, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, Award, Briefcase, GraduationCap, Sparkles, ArrowRight, Download, Eye, Sun, Moon, FileText, BookOpen, Zap, Shield, Copy, Play, CheckCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, Award, Briefcase, GraduationCap, Sparkles, ArrowRight, Download, Eye, Sun, Moon, FileText, BookOpen, Zap, Shield, Copy, Play, CheckCircle, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../settings/theme';
 
@@ -641,17 +641,152 @@ const PortfolioPage: React.FC = () => {
               </h2>
               <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full" />
               <p className={`text-lg mt-6 max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                Insights, tutorials, and thoughts on data analytics, visualization, and industry trends.
+                Insights, tutorials, and thoughts on development, Chrome extensions, and industry trends.
               </p>
             </div>
 
-            {/* Blog posts temporarily hidden */}
-            <div className="text-center py-12">
-              <div className={`rounded-2xl p-8 border-2 border-dashed shadow-lg ${isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-gray-50 border-gray-300'}`}>
-                <BookOpen size={48} className={`mx-auto mb-4 ${isDarkMode ? 'text-gray-500' : 'text-gray-500'}`} />
-                <p className={`text-lg font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Blog & Notes Coming Soon</p>
-                <p className={`text-sm mt-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Insights and tutorials will be published here soon</p>
-              </div>
+            {/* Blog Posts Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Chrome Web Store Review Article */}
+              <motion.article 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className={`rounded-xl p-6 shadow-lg border transition-all duration-300 hover:shadow-xl hover:scale-105 ${
+                  isDarkMode 
+                    ? 'bg-gray-800 border-gray-700 hover:border-blue-400' 
+                    : 'bg-white border-gray-200 hover:border-blue-300'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    isDarkMode 
+                      ? 'bg-blue-900/30 text-blue-300 border border-blue-700' 
+                      : 'bg-blue-100 text-blue-700 border border-blue-200'
+                  }`}>
+                    Chrome Extensions
+                  </span>
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    isDarkMode 
+                      ? 'bg-green-900/30 text-green-300 border border-green-700' 
+                      : 'bg-green-100 text-green-700 border border-green-200'
+                  }`}>
+                    Development Tips
+                  </span>
+                </div>
+                
+                <h3 className={`text-lg font-bold mb-3 line-clamp-2 ${
+                  isDarkMode ? 'text-white' : 'text-gray-800'
+                }`}>
+                  The Waiting Game — How to Handle Chrome Web Store Review Limbo (and Maybe Speed It Up)
+                </h3>
+                
+                <p className={`text-sm mb-4 line-clamp-3 ${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  Learn how to optimize your Chrome extension architecture for faster approval. 
+                  My extension was approved in under 48 hours using these strategies.
+                </p>
+                
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-4 text-xs text-gray-500">
+                    <span>{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                    <span>•</span>
+                    <span>5 min read</span>
+                  </div>
+                  <Zap className={`w-4 h-4 ${
+                    isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                  }`} />
+                </div>
+                
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate('/blog/chrome-web-store-review')}
+                  className={`w-full px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isDarkMode
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                      : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
+                  }`}
+                >
+                  Read Full Article
+                </motion.button>
+              </motion.article>
+
+              {/* Placeholder for Future Blog Posts */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className={`rounded-xl p-6 border-2 border-dashed transition-all duration-300 hover:border-blue-400 ${
+                  isDarkMode 
+                    ? 'bg-gray-800/50 border-gray-600 hover:bg-gray-800' 
+                    : 'bg-gray-50 border-gray-300 hover:bg-gray-100'
+                }`}
+              >
+                <div className="text-center py-8">
+                  <BookOpen size={32} className={`mx-auto mb-4 ${
+                    isDarkMode ? 'text-gray-500' : 'text-gray-400'
+                  }`} />
+                  <h3 className={`text-lg font-semibold mb-2 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    More Articles Coming Soon
+                  </h3>
+                  <p className={`text-sm ${
+                    isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
+                    New insights and tutorials will be published here
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Another Placeholder */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className={`rounded-xl p-6 border-2 border-dashed transition-all duration-300 hover:border-blue-400 ${
+                  isDarkMode 
+                    ? 'bg-gray-800/50 border-gray-600 hover:bg-gray-800' 
+                    : 'bg-gray-50 border-gray-300 hover:bg-gray-100'
+                }`}
+              >
+                <div className="text-center py-8">
+                  <Sparkles size={32} className={`mx-auto mb-4 ${
+                    isDarkMode ? 'text-gray-500' : 'text-gray-400'
+                  }`} />
+                  <h3 className={`text-lg font-semibold mb-2 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    Stay Tuned
+                  </h3>
+                  <p className={`text-sm ${
+                    isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
+                    More content is in the works
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* View All Blog Posts Button */}
+            <div className="text-center mt-8">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  isDarkMode
+                    ? 'bg-gray-700 hover:bg-gray-600 text-gray-200 border border-gray-600'
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300'
+                }`}
+              >
+                <BookOpen size={16} className="mr-2" />
+                View All Blog Posts
+              </motion.button>
             </div>
           </motion.div>
         </div>
