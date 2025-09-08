@@ -516,8 +516,8 @@ class ScrapingMonitor {
                   This article completes our three-part series on web scraping strategy. Missed the previous articles?
                 </h3>
                 <div className="space-y-2">
-                  <p>• <a href="/blog/chrome-web-store-review" className="text-blue-500 hover:underline">Article 1: The Chrome Web Store Waiting Game</a></p>
-                  <p>• <a href="/blog/web-scraping-resilience" className="text-blue-500 hover:underline">Article 2: Sleeping Through the Night</a></p>
+                  <p>• <a href="https://prashant-j.com/blog/chrome-web-store-review" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Article 1: The Chrome Web Store Waiting Game</a></p>
+                  <p>• <a href="https://prashant-j.com/blog/web-scraping-resilience" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Article 2: Sleeping Through the Night</a></p>
                 </div>
               </div>
             </section>
