@@ -34,17 +34,29 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     setIsDarkMode(initialTheme);
     
-    // Apply theme to document immediately
+    // Apply theme to document immediately and ensure it's applied
+    const htmlElement = document.documentElement;
     if (initialTheme) {
-      document.documentElement.classList.add('dark');
+      htmlElement.classList.add('dark');
+      htmlElement.setAttribute('data-theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      htmlElement.classList.remove('dark');
+      htmlElement.setAttribute('data-theme', 'light');
     }
+    
+    // Also apply to body for additional specificity
+    document.body.classList.toggle('dark', initialTheme);
     
     setIsInitialized(true);
     
     // Debug logging
-    console.log('ThemeProvider - Initialized theme:', { savedTheme, prefersDark, initialTheme, documentClass: document.documentElement.classList.contains('dark') });
+    console.log('ThemeProvider - Initialized theme:', { 
+      savedTheme, 
+      prefersDark, 
+      initialTheme, 
+      documentClass: htmlElement.classList.contains('dark'),
+      bodyClass: document.body.classList.contains('dark')
+    });
   }, []);
 
   const toggleDarkMode = () => {
@@ -54,15 +66,26 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // Save theme preference
     localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
     
-    // Apply theme to document
+    // Apply theme to document with multiple methods for reliability
+    const htmlElement = document.documentElement;
     if (newDarkMode) {
-      document.documentElement.classList.add('dark');
+      htmlElement.classList.add('dark');
+      htmlElement.setAttribute('data-theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      htmlElement.classList.remove('dark');
+      htmlElement.setAttribute('data-theme', 'light');
     }
     
+    // Also apply to body for additional specificity
+    document.body.classList.toggle('dark', newDarkMode);
+    
     // Debug logging
-    console.log('ThemeProvider - Theme toggled:', { from: isDarkMode, to: newDarkMode, documentClass: document.documentElement.classList.contains('dark') });
+    console.log('ThemeProvider - Theme toggled:', { 
+      from: isDarkMode, 
+      to: newDarkMode, 
+      documentClass: htmlElement.classList.contains('dark'),
+      bodyClass: document.body.classList.contains('dark')
+    });
   };
 
   // Don't render children until theme is initialized

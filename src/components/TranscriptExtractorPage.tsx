@@ -104,26 +104,26 @@ export default function TranscriptExtractorPage() {
       {/* Theme Toggle */}
       <button 
         onClick={toggleDarkMode} 
-        className="fixed top-6 right-6 z-50 p-3 rounded-full shadow-lg border hover:shadow-xl transition-all duration-300"
+        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 p-2 sm:p-3 rounded-full shadow-lg border hover:shadow-xl transition-all duration-300"
         style={{
           backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
           borderColor: isDarkMode ? '#4b5563' : '#e5e7eb'
         }}
       >
-        {isDarkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-600" />}
+        {isDarkMode ? <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />}
       </button>
       
       {/* Back Button */}
       <button 
         onClick={goBack}
-        className="fixed top-6 left-6 z-50 p-3 rounded-full shadow-lg border hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+        className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 p-2 sm:p-3 rounded-full shadow-lg border hover:shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2"
         style={{
           backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
           borderColor: isDarkMode ? '#4b5563' : '#e5e7eb'
         }}
       >
-        <ArrowLeft className="w-5 h-5" style={{ color: isDarkMode ? '#d1d5db' : '#4b5563' }} />
-        <span className="text-sm font-medium" style={{ color: isDarkMode ? '#d1d5db' : '#4b5563' }}>Back to Portfolio</span>
+        <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: isDarkMode ? '#d1d5db' : '#4b5563' }} />
+        <span className="text-xs sm:text-sm font-medium hidden sm:inline" style={{ color: isDarkMode ? '#d1d5db' : '#4b5563' }}>Back to Portfolio</span>
       </button>
 
       {/* Hero Section */}

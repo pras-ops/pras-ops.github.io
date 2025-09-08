@@ -22,7 +22,7 @@
   --border-color: #4b5563;
 }
 
-/* Force dark mode styles to work */
+/* Ensure dark mode classes work properly */
 .dark .bg-white {
   background-color: #111827 !important;
 }
@@ -31,20 +31,48 @@
   color: #f9fafb !important;
 }
 
-.dark .bg-gray-50 {
-  background-color: #1f2937 !important;
+.dark .text-gray-800 {
+  color: #f9fafb !important;
 }
 
-.dark .bg-gray-800 {
-  background-color: #1f2937 !important;
+.dark .text-gray-700 {
+  color: #e5e7eb !important;
 }
 
 .dark .text-gray-600 {
   color: #d1d5db !important;
 }
 
+.dark .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+.dark .text-gray-400 {
+  color: #9ca3af !important;
+}
+
 .dark .text-gray-300 {
   color: #d1d5db !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1f2937 !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #374151 !important;
+}
+
+.dark .bg-gray-200 {
+  background-color: #4b5563 !important;
+}
+
+.dark .bg-gray-800 {
+  background-color: #1f2937 !important;
+}
+
+.dark .bg-gray-900 {
+  background-color: #111827 !important;
 }
 
 .dark .border-gray-200 {
@@ -55,46 +83,11 @@
   border-color: #4b5563 !important;
 }
 
-/* Alternative dark mode approach using body class */
-body.dark-mode-active {
-  background-color: #111827 !important;
-  color: #f9fafb !important;
-}
-
-body.dark-mode-active * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Direct dark mode styles for common elements */
-body.dark-mode-active .bg-white {
-  background-color: #111827 !important;
-}
-
-body.dark-mode-active .text-gray-900 {
-  color: #f9fafb !important;
-}
-
-body.dark-mode-active .text-gray-600 {
-  color: #d1d5db !important;
-}
-
-body.dark-mode-active .text-gray-300 {
-  color: #d1d5db !important;
-}
-
-body.dark-mode-active .bg-gray-50 {
-  background-color: #1f2937 !important;
-}
-
-body.dark-mode-active .bg-gray-800 {
-  background-color: #1f2937 !important;
-}
-
-body.dark-mode-active .border-gray-200 {
+.dark .border-gray-600 {
   border-color: #4b5563 !important;
 }
 
-body.dark-mode-active .border-gray-300 {
+.dark .border-gray-700 {
   border-color: #4b5563 !important;
 }
 

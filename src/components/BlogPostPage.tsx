@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Clock, Zap, Code, CheckCircle, AlertTriangle, ExternalLink } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Zap, Code, CheckCircle, AlertTriangle, ExternalLink, Sun, Moon, Chrome, Github } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../settings/theme';
 
 const BlogPostPage: React.FC = () => {
   const navigate = useNavigate();
-  const { isDarkMode } = useTheme();
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   const goBack = () => {
     navigate('/');
@@ -35,6 +35,16 @@ const BlogPostPage: React.FC = () => {
             </motion.button>
             
             <div className="flex items-center space-x-4">
+              <button 
+                onClick={toggleDarkMode} 
+                className={`p-2 rounded-lg transition-colors ${
+                  isDarkMode 
+                    ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
+                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                }`}
+              >
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
               <div className={`flex items-center space-x-2 text-sm ${
                 isDarkMode ? 'text-gray-400' : 'text-gray-600'
               }`}>
@@ -341,6 +351,39 @@ const BlogPostPage: React.FC = () => {
               <p className="mt-4">
                 Your code isn't just functionality—it's your <strong>application for trust</strong>. Make it easy to approve.
               </p>
+            </section>
+
+            {/* Chrome Extension Links */}
+            <section>
+              <div className={`p-6 rounded-lg border ${
+                isDarkMode ? 'bg-blue-900/20 border-blue-700' : 'bg-blue-50 border-blue-200'
+              }`}>
+                <h3 className={`text-xl font-semibold mb-4 ${
+                  isDarkMode ? 'text-blue-300' : 'text-blue-800'
+                }`}>
+                  Try My Chrome Extension
+                </h3>
+                <p className={`mb-4 ${
+                  isDarkMode ? 'text-blue-200' : 'text-blue-700'
+                }`}>
+                  Experience the clean architecture principles in action with my Transcript Extractor Chrome extension. 
+                  It demonstrates the minimal permissions and transparent code structure discussed in this article.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="https://chromewebstore.google.com/detail/transcript-extractor/fjohldgflidaghednclaijiafmchlnbh" 
+                     target="_blank" rel="noopener noreferrer" 
+                     className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <Chrome size={16} className="mr-2" />
+                    Add to Chrome
+                  </a>
+                  <a href="https://github.com/pras-ops/udemy-transcript-extractor" 
+                     target="_blank" rel="noopener noreferrer" 
+                     className="inline-flex items-center px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+                    <Github size={16} className="mr-2" />
+                    View Source Code
+                  </a>
+                </div>
+              </div>
             </section>
 
             {/* References */}

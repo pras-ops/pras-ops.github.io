@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Github, Linkedin, ExternalLink, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, Award, Briefcase, GraduationCap, Sparkles, ArrowRight, Download, Eye, Sun, Moon, FileText, BookOpen, Zap, Shield, Copy, Play, CheckCircle, Clock } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, Award, Briefcase, GraduationCap, Sparkles, ArrowRight, Download, Eye, Sun, Moon, FileText, BookOpen, Zap, Shield, Copy, Play, CheckCircle, Clock, Target } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../settings/theme';
 
@@ -159,23 +159,10 @@ const PortfolioPage: React.FC = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KPGcgZmlsbD0iIzAwNzhENCIgZmlsbC1vcGFjaXR5PSIwLjAyIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIvPgo8L2c+CjwvZz4KPHN2Zz4=')] opacity-30" />
       </div>
 
-      {/* Navigation Container with Hover */}
-      <div className="fixed top-0 left-0 right-0 z-50 group">
-        {/* Top hover area for navigation */}
-        <div className="absolute top-0 left-0 right-0 h-8 z-40">
-          <div className="h-full w-full"></div>
-        </div>
-
+      {/* Navigation Container */}
+      <div className="fixed top-0 left-0 right-0 z-50">
         {/* Navigation */}
-        <nav className={`w-full backdrop-blur-xl border-b transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible hover:opacity-100 hover:visible ${isDarkMode ? 'bg-gray-900/80 border-gray-700/50' : 'bg-white/90 border-gray-200/60'}`}>
-        {/* Hover trigger area */}
-        <div className="absolute top-0 left-0 right-0 h-4 bg-transparent group-hover:h-0 transition-all duration-300"></div>
-        
-        {/* Subtle indicator */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-blue-600/30 rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        
-        {/* Always visible subtle indicator */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600/20 rounded-b-full"></div>
+        <nav className={`w-full backdrop-blur-xl border-b transition-all duration-300 ${isDarkMode ? 'bg-gray-900/80 border-gray-700/50' : 'bg-white/90 border-gray-200/60'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div initial={{
@@ -184,8 +171,8 @@ const PortfolioPage: React.FC = () => {
           }} animate={{
             opacity: 1,
             x: 0
-          }} className="flex items-center">
-                             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-600 shadow-sm">
+          }} className="flex items-center flex-shrink-0">
+                             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-600 shadow-sm">
                  <img 
                    src="/images/prashant-jacob-logo.jpeg" 
                    alt="Prashant Jacob Logo" 
@@ -208,12 +195,12 @@ const PortfolioPage: React.FC = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-4">
-              <button onClick={toggleTheme} className={`p-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'}`}>
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            <div className="md:hidden flex items-center space-x-1 flex-shrink-0">
+              <button onClick={toggleTheme} className={`p-1.5 rounded-lg transition-colors ${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'}`}>
+                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <button className={`p-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <button className={`p-1.5 rounded-lg transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
           </div>
@@ -290,27 +277,6 @@ const PortfolioPage: React.FC = () => {
             }} onClick={() => scrollToSection('projects')} className="group px-8 py-4 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl">
                 View My Work
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </motion.button>
-              
-              <motion.button 
-                whileHover={{
-                  scale: 1.05
-                }} 
-                whileTap={{
-                  scale: 0.95
-                }} 
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = '/Prashant-Jacob-Resume.pdf';
-                  link.download = 'Prashant-Jacob-Resume.pdf';
-                  link.target = '_blank';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-                className={`px-8 py-4 border-2 rounded-full font-medium transition-all duration-300 flex items-center ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400' : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'}`}>
-                <Download className="mr-2" size={20} />
-                Download Resume
               </motion.button>
             </div>
           </motion.div>
@@ -641,107 +607,211 @@ const PortfolioPage: React.FC = () => {
               </h2>
               <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full" />
               <p className={`text-lg mt-6 max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                Insights, tutorials, and thoughts on development, Chrome extensions, and industry trends.
+                Insights, tutorials, and thoughts on development, Chrome extensions, web scraping, and industry trends.
               </p>
             </div>
 
             {/* Blog Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Chrome Web Store Review Article */}
+                             {/* Chrome Web Store Review Article */}
+               <motion.article 
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.6, delay: 0.1 }}
+                 className={`rounded-xl p-6 shadow-lg border transition-all duration-300 hover:shadow-xl hover:scale-105 ${
+                   isDarkMode 
+                     ? 'bg-gray-800 border-gray-700 hover:border-blue-400' 
+                     : 'bg-white border-gray-200 hover:border-blue-300'
+                 }`}
+               >
+                 <div className="flex items-center gap-2 mb-4">
+                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                     isDarkMode 
+                       ? 'bg-blue-900/30 text-blue-300 border border-blue-700' 
+                       : 'bg-blue-100 text-blue-700 border border-blue-200'
+                   }`}>
+                     Chrome Extensions
+                   </span>
+                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                     isDarkMode 
+                       ? 'bg-green-900/30 text-green-300 border border-green-700' 
+                       : 'bg-green-100 text-green-700 border border-green-200'
+                   }`}>
+                     Development Tips
+                   </span>
+                 </div>
+                 
+                 <h3 className={`text-lg font-bold mb-3 line-clamp-2 ${
+                   isDarkMode ? 'text-white' : 'text-gray-800'
+                 }`}>
+                   The Waiting Game — How to Handle Chrome Web Store Review Limbo (and Maybe Speed It Up)
+                 </h3>
+                 
+                 <p className={`text-sm mb-4 line-clamp-3 ${
+                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                 }`}>
+                   Learn how to optimize your Chrome extension architecture for faster approval. 
+                   My extension was approved in under 48 hours using these strategies.
+                 </p>
+                 
+                 <div className="flex items-center justify-between mb-4">
+                   <div className="flex items-center space-x-4 text-xs text-gray-500">
+                     <span>{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                     <span>•</span>
+                     <span>5 min read</span>
+                   </div>
+                   <Zap className={`w-4 h-4 ${
+                     isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                   }`} />
+                 </div>
+                 
+                 <motion.button
+                   whileHover={{ scale: 1.02 }}
+                   whileTap={{ scale: 0.98 }}
+                   onClick={() => navigate('/blog/chrome-web-store-review')}
+                   className={`w-full px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                     isDarkMode
+                       ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                       : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
+                   }`}
+                 >
+                   Read Full Article
+                 </motion.button>
+               </motion.article>
+
+               {/* Web Scraping Resilience Article */}
+               <motion.article 
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.6, delay: 0.2 }}
+                 className={`rounded-xl p-6 shadow-lg border transition-all duration-300 hover:shadow-xl hover:scale-105 ${
+                   isDarkMode 
+                     ? 'bg-gray-800 border-gray-700 hover:border-blue-400' 
+                     : 'bg-white border-gray-200 hover:border-blue-300'
+                 }`}
+               >
+                 <div className="flex items-center gap-2 mb-4">
+                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                     isDarkMode 
+                       ? 'bg-purple-900/30 text-purple-300 border border-purple-700' 
+                       : 'bg-purple-100 text-purple-700 border border-purple-200'
+                   }`}>
+                     Web Scraping
+                   </span>
+                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                     isDarkMode 
+                       ? 'bg-orange-900/30 text-orange-300 border border-orange-700' 
+                       : 'bg-orange-100 text-orange-700 border border-orange-200'
+                   }`}>
+                     System Design
+                   </span>
+                 </div>
+                 
+                 <h3 className={`text-lg font-bold mb-3 line-clamp-2 ${
+                   isDarkMode ? 'text-white' : 'text-gray-800'
+                 }`}>
+                   How I Stopped Panicking About Broken Web Scrapers and Started Sleeping Through the Night
+                 </h3>
+                 
+                 <p className={`text-sm mb-4 line-clamp-3 ${
+                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                 }`}>
+                   Learn the three-layer defense system that transformed my web scraping from constant firefighting 
+                   to predictable operations. No more 2 AM debugging sessions.
+                 </p>
+                 
+                 <div className="flex items-center justify-between mb-4">
+                   <div className="flex items-center space-x-4 text-xs text-gray-500">
+                     <span>{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                     <span>•</span>
+                     <span>8 min read</span>
+                   </div>
+                   <Shield className={`w-4 h-4 ${
+                     isDarkMode ? 'text-purple-400' : 'text-purple-600'
+                   }`} />
+                 </div>
+                 
+                 <motion.button
+                   whileHover={{ scale: 1.02 }}
+                   whileTap={{ scale: 0.98 }}
+                   onClick={() => navigate('/blog/web-scraping-resilience')}
+                   className={`w-full px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                     isDarkMode
+                       ? 'bg-purple-600 hover:bg-purple-700 text-white'
+                       : 'bg-purple-100 hover:bg-purple-200 text-purple-700'
+                   }`}
+                 >
+                   Read Full Article
+                 </motion.button>
+               </motion.article>
+
+              {/* Strategic Web Scraping Article */}
               <motion.article 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 className={`rounded-xl p-6 shadow-lg border transition-all duration-300 hover:shadow-xl hover:scale-105 ${
                   isDarkMode 
-                    ? 'bg-gray-800 border-gray-700 hover:border-blue-400' 
-                    : 'bg-white border-gray-200 hover:border-blue-300'
+                    ? 'bg-gray-800 border-gray-700 hover:border-green-400' 
+                    : 'bg-white border-gray-200 hover:border-green-300'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                     isDarkMode 
-                      ? 'bg-blue-900/30 text-blue-300 border border-blue-700' 
-                      : 'bg-blue-100 text-blue-700 border border-blue-200'
+                      ? 'bg-purple-900/30 text-purple-300 border border-purple-700' 
+                      : 'bg-purple-100 text-purple-700 border border-purple-200'
                   }`}>
-                    Chrome Extensions
+                    Web Scraping
                   </span>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                     isDarkMode 
                       ? 'bg-green-900/30 text-green-300 border border-green-700' 
                       : 'bg-green-100 text-green-700 border border-green-200'
                   }`}>
-                    Development Tips
+                    Strategy
                   </span>
                 </div>
                 
                 <h3 className={`text-lg font-bold mb-3 line-clamp-2 ${
                   isDarkMode ? 'text-white' : 'text-gray-800'
                 }`}>
-                  The Waiting Game — How to Handle Chrome Web Store Review Limbo (and Maybe Speed It Up)
+                  Strategic Web Scraping: Choosing Approaches and Testing Limits
                 </h3>
                 
                 <p className={`text-sm mb-4 line-clamp-3 ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-700'
                 }`}>
-                  Learn how to optimize your Chrome extension architecture for faster approval. 
-                  My extension was approved in under 48 hours using these strategies.
+                  After losing three LinkedIn accounts to aggressive backend automation, I learned that successful web scraping isn't about technical prowess alone—it's about strategic thinking and proactive testing.
                 </p>
                 
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-4 text-xs text-gray-500">
-                    <span>{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                    <span>May 22</span>
                     <span>•</span>
-                    <span>5 min read</span>
+                    <span>8 min read</span>
                   </div>
-                  <Zap className={`w-4 h-4 ${
-                    isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                  <Target className={`w-4 h-4 ${
+                    isDarkMode ? 'text-green-400' : 'text-green-600'
                   }`} />
                 </div>
                 
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate('/blog/chrome-web-store-review')}
+                  onClick={() => navigate('/blog/strategic-web-scraping')}
                   className={`w-full px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isDarkMode
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                      : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
+                      ? 'bg-green-600 hover:bg-green-700 text-white'
+                      : 'bg-green-100 hover:bg-green-200 text-green-700'
                   }`}
                 >
                   Read Full Article
                 </motion.button>
               </motion.article>
-
-              {/* Placeholder for Future Blog Posts */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className={`rounded-xl p-6 border-2 border-dashed transition-all duration-300 hover:border-blue-400 ${
-                  isDarkMode 
-                    ? 'bg-gray-800/50 border-gray-600 hover:bg-gray-800' 
-                    : 'bg-gray-50 border-gray-300 hover:bg-gray-100'
-                }`}
-              >
-                <div className="text-center py-8">
-                  <BookOpen size={32} className={`mx-auto mb-4 ${
-                    isDarkMode ? 'text-gray-500' : 'text-gray-400'
-                  }`} />
-                  <h3 className={`text-lg font-semibold mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
-                    More Articles Coming Soon
-                  </h3>
-                  <p className={`text-sm ${
-                    isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
-                    New insights and tutorials will be published here
-                  </p>
-                </div>
-              </motion.div>
 
               {/* Another Placeholder */}
               <motion.div 
@@ -771,7 +841,7 @@ const PortfolioPage: React.FC = () => {
                   </p>
                 </div>
               </motion.div>
-            </div>
+              </div>
 
             {/* View All Blog Posts Button */}
             <div className="text-center mt-8">
