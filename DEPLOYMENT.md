@@ -53,8 +53,12 @@ git push -u origin main
 ## Automatic Deployment
 The project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that will:
 - Automatically build your project when you push to the main branch
+- Create a 404.html fallback file for client-side routing support
 - Deploy it to GitHub Pages
 - Update your site with the latest changes
+
+### Client-Side Routing Support
+This setup includes a `404.html` fallback file that ensures all React Router routes work correctly on GitHub Pages. When someone visits a direct link like `/blog/chrome-web-store-review`, GitHub Pages will serve the 404.html file, which loads your React app and handles the routing client-side.
 
 ## Manual Deployment (if needed)
 If you need to deploy manually:

@@ -189,23 +189,27 @@
         
         // Apply theme to document immediately
         const htmlElement = document.documentElement;
-        if (initialTheme) {
-          htmlElement.classList.add('dark');
-          htmlElement.setAttribute('data-theme', 'dark');
-        } else {
-          htmlElement.classList.remove('dark');
-          htmlElement.setAttribute('data-theme', 'light');
+        if (htmlElement) {
+          if (initialTheme) {
+            htmlElement.classList.add('dark');
+            htmlElement.setAttribute('data-theme', 'dark');
+          } else {
+            htmlElement.classList.remove('dark');
+            htmlElement.setAttribute('data-theme', 'light');
+          }
         }
         
         // Also apply to body for additional specificity
-        document.body.classList.toggle('dark', initialTheme);
+        if (document.body) {
+          document.body.classList.toggle('dark', initialTheme);
+        }
         
         console.log('Theme script - Applied theme:', { 
           savedTheme, 
           prefersDark, 
           initialTheme, 
-          documentClass: htmlElement.classList.contains('dark'),
-          bodyClass: document.body.classList.contains('dark')
+          documentClass: htmlElement ? htmlElement.classList.contains('dark') : false,
+          bodyClass: document.body ? document.body.classList.contains('dark') : false
         });
       })();
     </script>

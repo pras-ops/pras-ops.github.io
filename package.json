@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://prashant-j.com",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh-pages": "npm run build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
