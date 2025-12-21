@@ -5,7 +5,7 @@ import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
 function ParticleGlobe(props: any) {
-    const ref = useRef<any>();
+    const ref = useRef<THREE.Points>(null);
 
     // Generate points on a sphere
     const particles = useMemo(() => {
