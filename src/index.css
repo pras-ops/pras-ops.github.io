@@ -1,95 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Arial&family=Helvetica&family=Times+New+Roman&family=Georgia&family=Roboto&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
 
-/* CSS Custom Properties for Dark Mode */
-:root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-tertiary: #6b7280;
-  --border-color: #e5e7eb;
-}
+@plugin "tailwindcss-animate";
 
-.dark {
-  --bg-primary: #111827;
-  --bg-secondary: #1f2937;
-  --bg-tertiary: #374151;
-  --text-primary: #f9fafb;
-  --text-secondary: #e5e7eb;
-  --text-tertiary: #d1d5db;
-  --border-color: #4b5563;
-}
-
-/* Ensure dark mode classes work properly */
-.dark .bg-white {
-  background-color: #111827 !important;
-}
-
-.dark .text-gray-900 {
-  color: #f9fafb !important;
-}
-
-.dark .text-gray-800 {
-  color: #f9fafb !important;
-}
-
-.dark .text-gray-700 {
-  color: #e5e7eb !important;
-}
-
-.dark .text-gray-600 {
-  color: #d1d5db !important;
-}
-
-.dark .text-gray-500 {
-  color: #9ca3af !important;
-}
-
-.dark .text-gray-400 {
-  color: #9ca3af !important;
-}
-
-.dark .text-gray-300 {
-  color: #d1d5db !important;
-}
-
-.dark .bg-gray-50 {
-  background-color: #1f2937 !important;
-}
-
-.dark .bg-gray-100 {
-  background-color: #374151 !important;
-}
-
-.dark .bg-gray-200 {
-  background-color: #4b5563 !important;
-}
-
-.dark .bg-gray-800 {
-  background-color: #1f2937 !important;
-}
-
-.dark .bg-gray-900 {
-  background-color: #111827 !important;
-}
-
-.dark .border-gray-200 {
-  border-color: #4b5563 !important;
-}
-
-.dark .border-gray-300 {
-  border-color: #4b5563 !important;
-}
-
-.dark .border-gray-600 {
-  border-color: #4b5563 !important;
-}
-
-.dark .border-gray-700 {
-  border-color: #4b5563 !important;
-}
+@custom-variant dark (&:is(.dark *));
 
 body {
   margin: 0;
@@ -99,26 +13,152 @@ body {
   height: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  overflow: auto;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: #020617; /* Deep Navy */
+  color: #f8fafc; /* Slate 50 */
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
 }
 
-/* Ensure smooth transitions for dark mode */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 0.3rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
 }
 
-/* Force dark mode styles to take precedence */
-.dark * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+:root {
+  /* Always Dark Theme Aesthetics for this specific design */
+  --background: oklch(0.08 0.03 264); /* Very dark blue/slate */
+  --foreground: oklch(0.985 0 0);
+  
+  --card: oklch(0.13 0.03 264); /* Slightly lighter navy */
+  --card-foreground: oklch(0.985 0 0);
+  
+  --popover: oklch(0.13 0.03 264);
+  --popover-foreground: oklch(0.985 0 0);
+  
+  --primary: oklch(0.65 0.18 240); /* Neon Blue/Cyan */
+  --primary-foreground: oklch(0.08 0.03 264);
+  
+  --secondary: oklch(0.25 0.04 264);
+  --secondary-foreground: oklch(0.985 0 0);
+  
+  --muted: oklch(0.2 0.03 264);
+  --muted-foreground: oklch(0.7 0.02 264);
+  
+  --accent: oklch(0.25 0.04 264);
+  --accent-foreground: oklch(0.985 0 0);
+  
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  --border: oklch(0.25 0.04 264);
+  --input: oklch(0.25 0.04 264);
+  --ring: oklch(0.65 0.18 240);
+  
+  --radius: 0.75rem;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  @apply backdrop-blur-xl shadow-xl transition-all duration-300;
+}
+
+/* Dark mode - glass-panel */
+html.dark .glass-panel,
+.dark .glass-panel,
+[data-theme="dark"] .glass-panel {
+  background-color: rgb(30, 41, 59) !important;
+  border: 1px solid rgba(51, 65, 85, 0.5) !important;
+}
+
+html.dark .glass-panel:hover,
+.dark .glass-panel:hover,
+[data-theme="dark"] .glass-panel:hover {
+  background-color: rgb(51, 65, 85) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+/* Light mode - glass-panel */
+html:not(.dark) .glass-panel,
+:not(.dark) .glass-panel,
+[data-theme="light"] .glass-panel {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(229, 231, 235, 0.5) !important;
+}
+
+html:not(.dark) .glass-panel:hover,
+:not(.dark) .glass-panel:hover,
+[data-theme="light"] .glass-panel:hover {
+  background-color: rgb(255, 255, 255) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+.glass-card {
+  @apply backdrop-blur-md transition-all duration-300;
+}
+
+/* Dark mode - glass-card */
+html.dark .glass-card,
+.dark .glass-card,
+[data-theme="dark"] .glass-card {
+  background-color: rgb(30, 41, 59) !important;
+  border: 1px solid rgba(51, 65, 85, 0.3) !important;
+}
+
+html.dark .glass-card:hover,
+.dark .glass-card:hover,
+[data-theme="dark"] .glass-card:hover {
+  background-color: rgb(51, 65, 85) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+/* Light mode - glass-card */
+html:not(.dark) .glass-card,
+:not(.dark) .glass-card,
+[data-theme="light"] .glass-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(229, 231, 235, 0.3) !important;
+}
+
+html:not(.dark) .glass-card:hover,
+:not(.dark) .glass-card:hover,
+[data-theme="light"] .glass-card:hover {
+  background-color: rgb(255, 255, 255) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-600;
 }
