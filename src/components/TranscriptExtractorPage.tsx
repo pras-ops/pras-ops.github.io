@@ -128,14 +128,14 @@ export default function TranscriptExtractorPage() {
 
       {/* Hero Section */}
       <section 
-        className="relative py-20 px-6 transition-colors duration-300"
+        className="relative py-20 transition-colors duration-300"
         style={{
           background: isDarkMode 
             ? 'linear-gradient(135deg, #111827 0%, #1f2937 50%, #1e3a8a 100%)'
             : 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #e0e7ff 100%)'
         }}
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
           <h1 
             className="text-4xl md:text-6xl font-bold mb-6 transition-colors duration-300"
             style={{
@@ -207,8 +207,8 @@ export default function TranscriptExtractorPage() {
       </section>
 
       {/* Project Overview */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <h2 className="text-3xl font-bold text-center mb-8">
             <span className="text-blue-600">Project Overview</span>
           </h2>
@@ -250,8 +250,8 @@ export default function TranscriptExtractorPage() {
       </section>
 
       {/* Key Features */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-blue-600">Key Features</span>
           </h2>
@@ -278,8 +278,8 @@ export default function TranscriptExtractorPage() {
       </section>
 
       {/* Technical Stack */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-blue-600">Technical Stack</span>
           </h2>
@@ -301,8 +301,8 @@ export default function TranscriptExtractorPage() {
       </section>
 
       {/* Supported Platforms */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-blue-600">Platform Support</span>
           </h2>
@@ -349,8 +349,8 @@ export default function TranscriptExtractorPage() {
       </section>
 
       {/* Why Choose */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <h2 className="text-3xl font-bold text-center mb-12">
             <span className="text-blue-600">Why Choose Transcript Extractor?</span>
           </h2>
@@ -397,8 +397,8 @@ export default function TranscriptExtractorPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Transform Your Learning?
           </h2>

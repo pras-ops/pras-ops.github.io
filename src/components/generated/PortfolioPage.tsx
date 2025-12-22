@@ -10,6 +10,7 @@ import HeroBackground from '../NetworkBackground';
 const PortfolioPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAllPosts, setShowAllPosts] = useState(false);
   const { isDarkMode, toggleDarkMode } = useTheme();
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
@@ -64,6 +65,15 @@ const PortfolioPage: React.FC = () => {
   ];
 
   const projects = [
+    {
+      title: 'Client-Side LLM Preprocessor',
+      description: 'JavaScript SDK that reduces LLM API token costs by cleaning and structuring text locally in the browser. Features rule-based cleaning and optional WebGPU-powered local LLM inference for privacy-first preprocessing.',
+      demo: 'https://www.npmjs.com/package/client-llm-preprocessor',
+      github: 'https://github.com/pras-ops/Local_processing_llm',
+      tech: ['JavaScript', 'WebGPU', 'LLM', 'Browser AI'],
+      category: 'AI/ML SDK',
+      icon: Brain
+    },
     {
       title: 'Transcript Extractor',
       description: 'Chrome Extension - Currently supporting Udemy with plans to expand to Coursera, YouTube, edX, and more. Automating transcript collection.',
@@ -317,6 +327,13 @@ const PortfolioPage: React.FC = () => {
                         >
                           <Eye size={16} /> View Details
                         </button>
+                      ) : project.title === 'Client-Side LLM Preprocessor' ? (
+                        <button
+                          onClick={() => navigate('/llm-preprocessor')}
+                          className={`w-full py-2 hover:bg-sky-600 hover:text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 ${isDarkMode ? 'bg-slate-800 text-slate-300' : 'bg-gray-200 text-gray-700'}`}
+                        >
+                          <Eye size={16} /> View Details
+                        </button>
                       ) : (
                         project.demo && (
                           <a
@@ -342,8 +359,11 @@ const PortfolioPage: React.FC = () => {
                   <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Blog & Notes</h3>
                   <p className={isDarkMode ? 'text-slate-400' : 'text-gray-600'}>Thoughts on Scraping, Engineering, and AI</p>
                 </div>
-                <button className={`px-6 py-2 border rounded-full transition-colors text-sm ${isDarkMode ? 'border-slate-700 text-slate-300 hover:bg-slate-800' : 'border-gray-300 text-gray-700 hover:bg-gray-100'}`}>
-                  View All Posts
+                <button 
+                  onClick={() => setShowAllPosts(!showAllPosts)}
+                  className={`px-6 py-2 border rounded-full transition-colors text-sm ${isDarkMode ? 'border-slate-700 text-slate-300 hover:bg-slate-800' : 'border-gray-300 text-gray-700 hover:bg-gray-100'}`}
+                >
+                  {showAllPosts ? 'Show Less' : 'View All Posts'}
                 </button>
               </div>
 
@@ -377,6 +397,23 @@ const PortfolioPage: React.FC = () => {
                     How to optimize your extension for faster approval (under 48h).
                   </p>
                 </div>
+
+                {showAllPosts && (
+                  <div
+                    onClick={() => navigate('/blog/strategic-web-scraping')}
+                    className="glass-card rounded-xl p-6 cursor-pointer group"
+                  >
+                    <div className="flex items-center gap-2 text-xs font-medium text-orange-400 mb-3 uppercase tracking-wider">
+                      <Target size={12} /> Web Scraping
+                    </div>
+                    <h4 className={`text-lg font-bold group-hover:text-orange-400 transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                      Strategic Web Scraping: Choosing Approaches
+                    </h4>
+                    <p className={`text-sm mt-2 ${isDarkMode ? 'text-slate-400' : 'text-gray-600'}`}>
+                      How to match the right approach to your target and test limits proactively.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
 
