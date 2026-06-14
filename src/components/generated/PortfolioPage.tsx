@@ -81,14 +81,14 @@ const PortfolioPage: React.FC = () => {
 
   const projects = [
     {
-      title: 'Client-Side LLM Preprocessor',
-      description: 'A privacy-first JavaScript SDK that cuts LLM API token costs by cleaning and structuring text right in the browser. Rule-based cleaning (strip HTML, URLs, normalize whitespace) runs instantly with no model, while an optional WebGPU-powered local LLM handles semantic extraction and structured parsing — all on-device, no servers or API keys.',
-      demo: 'https://www.npmjs.com/package/client-llm-preprocessor',
+      title: 'Browser PII Shield',
+      description: 'A privacy-first JavaScript SDK that redacts sensitive PII (emails, SSNs, credit cards, names) entirely client-side before prompts reach cloud LLMs — then restores the originals locally in the response. Reversible placeholder mapping, a one-line shielded fetch proxy, and hybrid regex + local-WebGPU-LLM redaction keep data on-device for HIPAA / GDPR / SOC2.',
+      demo: 'https://www.npmjs.com/package/browser-pii-shield',
       github: 'https://github.com/pras-ops/Local_processing_llm',
-      route: '/llm-preprocessor',
-      tech: ['JavaScript', 'WebGPU', 'Local LLM', 'NPM SDK'],
-      category: 'AI/ML SDK',
-      icon: Brain
+      route: '/browser-pii-shield',
+      tech: ['JavaScript', 'WebGPU', 'WebLLM', 'NPM SDK'],
+      category: 'Privacy SDK',
+      icon: Shield
     },
     {
       title: 'CAG — Feedback-Learning Retrieval',
@@ -332,7 +332,7 @@ const PortfolioPage: React.FC = () => {
               
               <div className="space-y-6">
                 {/* Featured Project - Big Horizontal Card */}
-                {projects.filter(p => p.title === 'Client-Side LLM Preprocessor').map((project, idx) => (
+                {projects.filter(p => p.title === 'Browser PII Shield').map((project, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 30 }}
@@ -361,7 +361,7 @@ const PortfolioPage: React.FC = () => {
                         </div>
                         <div className="flex gap-4 pt-2">
                           <button
-                            onClick={() => navigate('/llm-preprocessor')}
+                            onClick={() => navigate('/browser-pii-shield')}
                             className="press px-6 py-2.5 bg-primary text-primary-foreground hover:brightness-110 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 border border-primary/20"
                           >
                             <Eye size={16} /> View Details
@@ -385,10 +385,10 @@ const PortfolioPage: React.FC = () => {
                             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70"/>
                           </div>
                           <pre className="p-4 leading-relaxed text-muted-foreground">
-                            <span className="text-primary">$</span> npm i client-llm-preprocessor<br/>
+                            <span className="text-primary">$</span> npm i browser-pii-shield<br/>
                             <span className="text-emerald-400">✓</span> ready<br/>
-                            import {'{ preprocess }'} from 'client-llm-preprocessor'<br/>
-                            const clean = preprocess(raw) <span className="text-muted-foreground/60">{'// ~40% fewer tokens'}</span>
+                            import {'{ Preprocessor }'} from 'browser-pii-shield'<br/>
+                            const {'{ redacted }'} = await pre.redact(text) <span className="text-muted-foreground/60">{'// PII → {{EMAIL_1}}'}</span>
                           </pre>
                         </div>
                       </div>
@@ -398,7 +398,7 @@ const PortfolioPage: React.FC = () => {
 
                 {/* Other Projects - 3 Column Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {projects.filter(p => p.title !== 'Client-Side LLM Preprocessor').map((project, idx) => (
+                  {projects.filter(p => p.title !== 'Browser PII Shield').map((project, idx) => (
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 20 }}
