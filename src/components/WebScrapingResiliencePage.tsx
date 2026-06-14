@@ -103,8 +103,8 @@ const WebScrapingResiliencePage: React.FC = () => {
               <span>8 min read</span>
             </div>
             
-            <div className={`p-4 rounded-lg border-l-4 ${
-              isDarkMode ? 'bg-purple-900/20 border-purple-500' : 'bg-purple-50 border-purple-500'
+            <div className={`p-4 rounded-lg border ${
+              isDarkMode ? 'bg-purple-950/20 border-purple-500/25' : 'bg-purple-50 border-purple-200'
             }`}>
               <p className={`text-lg leading-relaxed ${
                 isDarkMode ? 'text-purple-200' : 'text-purple-800'

@@ -107,8 +107,8 @@ const BlogPostPage: React.FC = () => {
               <span>5 min read</span>
             </div>
             
-            <div className={`p-4 rounded-lg border-l-4 ${
-              isDarkMode ? 'bg-blue-900/20 border-blue-500' : 'bg-blue-50 border-blue-500'
+            <div className={`p-4 rounded-lg border ${
+              isDarkMode ? 'bg-blue-950/20 border-blue-500/25' : 'bg-blue-50 border-blue-200'
             }`}>
               <p className={`text-lg leading-relaxed ${
                 isDarkMode ? 'text-blue-200' : 'text-blue-800'
@@ -267,8 +267,8 @@ const BlogPostPage: React.FC = () => {
                   isDarkMode ? 'bg-yellow-900/20 border-yellow-700' : 'bg-yellow-50 border-yellow-200'
                 }`}>
                   <p><strong>Stack Overflow Case</strong>: A developer reported rejections for broad permissions:</p>
-                  <blockquote className={`mt-3 p-4 italic border-l-4 ${
-                    isDarkMode ? 'border-gray-600 bg-gray-800' : 'border-gray-300 bg-gray-100'
+                  <blockquote className={`mt-3 p-4 italic border rounded-lg ${
+                    isDarkMode ? 'border-gray-700 bg-gray-800/40' : 'border-gray-300 bg-gray-100'
                   }`}>
                     "Your product violates the 'Use of Permissions' section. Request the narrowest permissions necessary"
                   </blockquote>
@@ -329,8 +329,8 @@ const BlogPostPage: React.FC = () => {
                 <p>• <strong>Privacy Policy</strong>: Add a clear policy linked in your dashboard.</p>
               </div>
               <p className="mt-4"><strong>Resubmit with a polite note:</strong></p>
-              <blockquote className={`mt-3 p-4 italic border-l-4 ${
-                isDarkMode ? 'border-gray-600 bg-gray-800' : 'border-gray-300 bg-gray-100'
+              <blockquote className={`mt-3 p-4 italic border rounded-lg ${
+                isDarkMode ? 'border-gray-700 bg-gray-800/40' : 'border-gray-300 bg-gray-100'
               }`}>
                 "Reduced permission scope from <code>&lt;all_urls&gt;</code> to <code>activeTab</code>. 
                 Extension now only runs on user-initiated actions."
