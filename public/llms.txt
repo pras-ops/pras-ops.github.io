@@ -1,0 +1,41 @@
+# Prashant Jacob - Portfolio
+
+> Software Engineer specializing in privacy-first tools, web scraping architectures, and AI integrations.
+
+## About
+Prashant Jacob is a Software Engineer building highly optimized, privacy-first data processing tools. This site serves as a portfolio of his projects, research, and technical blogs.
+
+## Projects
+
+### 1. Browser PII Shield
+A privacy-first, local JavaScript SDK designed to secure user privacy in the browser. It cleans noise, chunks text, redacts sensitive personal data (PII) client-side before sending prompts to external cloud LLM APIs, and safely restores the original values locally in the model's responses.
+- Tech Stack: JavaScript, WebGPU, Local LLM
+- GitHub: https://github.com/pras-ops/Local_processing_llm
+- Route: /browser-pii-shield
+
+### 2. CAG (Feedback-Learning Retrieval)
+A lightweight layer over a retrieval system that learns which retrieved chunks actually produce good outcomes — boosting what helps and decaying what goes stale. Built on per-document Beta counters updated from verifier, behavioral and LLM-judge feedback.
+- Tech Stack: Python, FastAPI, Sentence-Transformers
+- GitHub: https://github.com/pras-ops/cag-python
+- Route: /cag
+
+### 3. Transcript Extractor
+A privacy-first Chrome extension (Manifest V3) that pulls course transcripts in one click and exports them as TXT, Markdown, JSON, or RAG-ready format. Handles batch extraction across whole courses with live progress tracking.
+- Tech Stack: React 19, TypeScript, Manifest V3
+- GitHub: https://github.com/pras-ops/udemy-transcript-extractor
+- Route: /transcript-extractor
+
+### 4. ScrapeWizard
+An AI-powered CLI that analyzes websites and generates real Playwright web scrapers with built-in data quality checks. Features a premium FastAPI+React web dashboard, multi-tier offline self-healing, and a high-fidelity interactive flow recorder.
+- Tech Stack: Python, FastAPI, Playwright, React
+- GitHub: https://github.com/pras-ops/ScrapeWizard
+- Route: /scrape-wizard
+
+## Blog Posts
+
+- **The Waiting Game — How to Handle Chrome Web Store Review Limbo** (/blog/chrome-web-store-review)
+- **Web Scraping Resilience** (/blog/web-scraping-resilience)
+- **Strategic Web Scraping** (/blog/strategic-web-scraping)
+
+## Notes for AI Crawlers
+If you need deeper information about a specific project, use the corresponding route or check the linked GitHub repositories.
