@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Github, Linkedin, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, ArrowRight, Eye, Shield, Target, Server, Globe, Layers, FileText, Zap } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import HeroBackground from '../NetworkBackground';
 import TiltCard from '../TiltCard';
 
@@ -370,12 +370,12 @@ const PortfolioPage: React.FC = () => {
                           ))}
                         </div>
                         <div className="flex gap-4 pt-2">
-                          <button
-                            onClick={() => navigate('/browser-pii-shield')}
-                            className="press px-6 py-2.5 bg-primary text-primary-foreground hover:brightness-110 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 border border-primary/20"
+                          <Link
+                            to="/browser-pii-shield"
+                            className="press px-6 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl text-sm font-bold transition-all shadow-lg shadow-primary/25 flex items-center gap-2"
                           >
-                            <Eye size={16} /> View Details
-                          </button>
+                            <Eye size={18} /> View Case Study
+                          </Link>
                           <a
                             href={project.github}
                             target="_blank"
@@ -444,12 +444,12 @@ const PortfolioPage: React.FC = () => {
 
                         <div className="mt-auto pt-2">
                           {project.route ? (
-                            <button
-                              onClick={() => navigate(project.route)}
+                            <Link
+                              to={project.route}
                               className="press w-full py-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 text-foreground border border-border"
                             >
                               <Eye size={16} /> View Details
-                            </button>
+                            </Link>
                           ) : project.demo ? (
                             <a
                               href={project.demo}
