@@ -64,7 +64,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
 
   if (!enabled) {
     return (
-      <div className={`relative ${className}`} style={style} {...(props as any)}>
+      <div className={`relative ${className}`} style={style as React.CSSProperties} {...(props as React.HTMLAttributes<HTMLDivElement>)}>
         {children}
       </div>
     );
