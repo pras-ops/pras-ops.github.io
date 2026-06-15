@@ -8,6 +8,7 @@ import WebScrapingResiliencePage from './components/WebScrapingResiliencePage';
 import StrategicScrapingPage from './components/StrategicScrapingPage';
 import CagPage from './components/CagPage';
 import BrowserPiiShieldPage from './components/BrowserPiiShieldPage';
+import ScrapeWizardPage from './components/ScrapeWizardPage';
 import { ThemeProvider } from './settings/theme';
 
 // Component to handle scroll to top on route change
@@ -33,6 +34,7 @@ function App() {
             <Route path="/llm-preprocessor" element={<LLMPreprocessorPage />} />
             <Route path="/cag" element={<CagPage />} />
             <Route path="/browser-pii-shield" element={<BrowserPiiShieldPage />} />
+            <Route path="/scrape-wizard" element={<ScrapeWizardPage />} />
             <Route path="/blog/chrome-web-store-review" element={<BlogPostPage />} />
             <Route path="/blog/web-scraping-resilience" element={<WebScrapingResiliencePage />} />
             <Route path="/blog/strategic-web-scraping" element={<StrategicScrapingPage />} />

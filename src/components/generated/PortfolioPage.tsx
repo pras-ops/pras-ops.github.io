@@ -109,6 +109,16 @@ const PortfolioPage: React.FC = () => {
       tech: ['React 19', 'TypeScript', 'Chrome APIs', 'Manifest V3'],
       category: 'Web Extension',
       icon: FileText
+    },
+    {
+      title: 'ScrapeWizard',
+      description: 'An AI-powered CLI that analyzes websites and generates real Playwright web scrapers with built-in data quality checks. Features a premium FastAPI+React web dashboard, multi-tier offline self-healing, a high-fidelity interactive flow recorder, isolated sandbox test automation for a11y & visual diffs, and zero lock-in Pytest exports.',
+      demo: '',
+      github: 'https://github.com/pras-ops/ScrapeWizard',
+      route: '/scrape-wizard',
+      tech: ['Python', 'FastAPI', 'Playwright', 'React'],
+      category: 'AI-Powered CLI',
+      icon: Brain
     }
   ];
 
