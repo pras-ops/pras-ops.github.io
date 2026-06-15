@@ -1,59 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Clock, Shield, Code, CheckCircle, AlertTriangle, ExternalLink, Github, Twitter, Zap, Sun, Moon, Chrome, Target, TestTube } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Shield, Code, CheckCircle, AlertTriangle, ExternalLink, Github, Twitter, Zap, Chrome, Target, TestTube } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../settings/theme';
 
 const StrategicScrapingPage: React.FC = () => {
   const navigate = useNavigate();
-  const { isDarkMode, toggleDarkMode } = useTheme();
-
+  
   const goBack = () => {
     navigate('/');
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+    <div className="min-h-screen grain bg-background text-foreground">
       {/* Header */}
-      <header className={`sticky top-0 z-50 backdrop-blur-xl border-b ${
-        isDarkMode ? 'bg-gray-900/80 border-gray-700' : 'bg-white/90 border-gray-200'
-      }`}>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border nav-glass">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={goBack}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                isDarkMode 
-                  ? 'text-gray-300 hover:text-purple-400 hover:bg-gray-800' 
-                  : 'text-gray-600 hover:text-purple-600 hover:bg-gray-100'
-              }`}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-gray-300 hover:text-purple-400 hover:bg-gray-800"
             >
               <ArrowLeft size={20} />
               <span>Back to Portfolio</span>
             </motion.button>
             
             <div className="flex items-center space-x-4">
-              <button 
-                onClick={toggleDarkMode} 
-                className={`p-2 rounded-lg transition-colors ${
-                  isDarkMode 
-                    ? 'text-gray-300 hover:text-purple-400 hover:bg-gray-800' 
-                    : 'text-gray-600 hover:text-purple-600 hover:bg-gray-100'
-                }`}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <div className={`flex items-center space-x-2 text-sm ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Target size={16} />
                 <span>Web Scraping</span>
               </div>
-              <div className={`flex items-center space-x-2 text-sm ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Clock size={16} />
                 <span>8 min read</span>
               </div>
@@ -68,32 +47,22 @@ const StrategicScrapingPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className={`prose prose-lg max-w-none ${
+          className="prose prose-lg max-w-none ${
             isDarkMode ? 'prose-invert' : ''
-          }`}
+          }"
         >
           {/* Article Header */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                isDarkMode 
-                  ? 'bg-purple-900/30 text-purple-300 border border-purple-700' 
-                  : 'bg-purple-100 text-purple-700 border border-purple-200'
-              }`}>
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-900/30 text-purple-300 border border-purple-700">
                 Web Scraping
               </span>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                isDarkMode 
-                  ? 'bg-orange-900/30 text-orange-300 border border-orange-700' 
-                  : 'bg-orange-100 text-orange-700 border border-orange-200'
-              }`}>
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-orange-900/30 text-orange-300 border border-orange-700">
                 Strategy
               </span>
             </div>
             
-            <h1 className={`text-4xl sm:text-5xl font-bold mb-6 ${
-              isDarkMode ? 'text-white' : 'text-gray-800'
-            }`}>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
               Strategic Web Scraping: Choosing Approaches and Testing Limits
             </h1>
             
@@ -103,35 +72,25 @@ const StrategicScrapingPage: React.FC = () => {
               <span>8 min read</span>
             </div>
             
-            <div className={`p-4 rounded-lg border ${
-              isDarkMode ? 'bg-purple-950/20 border-purple-500/25' : 'bg-purple-50 border-purple-200'
-            }`}>
-              <p className={`text-lg leading-relaxed ${
-                isDarkMode ? 'text-purple-200' : 'text-purple-800'
-              }`}>
+            <div className="p-4 rounded-lg border bg-purple-950/20 border-purple-500/25">
+              <p className="text-lg leading-relaxed text-purple-200">
                 <strong>TL;DR:</strong> After losing three LinkedIn accounts to aggressive backend automation, I learned the hard way that successful web scraping isn't about technical prowess alone—it's about strategic thinking. The key is matching the right approach to your specific target and implementing proactive testing to avoid catastrophic failures.
               </p>
             </div>
           </div>
 
           {/* Article Body */}
-          <div className={`space-y-8 text-lg leading-relaxed ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-700'
-          }`}>
+          <div className="space-y-8 text-lg leading-relaxed text-gray-300">
             {/* The Right Tool for the Right Job */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Right Tool for the Right Job: A Strategic Framework
               </h2>
               <p>
                 Why does Transcript Extractor use an extension-based approach? Because Udemy, Coursera, and similar platforms rely on authenticated, session-sensitive browsing, and we needed maximum reliability and minimal account risk. This extension taught me: always start with your user's risk profile and platform tolerance. For future EdTech tools, I'll use the same strategic lens.
               </p>
               
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 Why We Chose an Extension for Transcript Extractor:
               </h3>
               <ul className="list-disc list-inside mt-4 space-y-2 ml-6">
@@ -144,21 +103,15 @@ const StrategicScrapingPage: React.FC = () => {
 
             {/* Two Fundamental Approaches */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Two Fundamental Approaches
               </h2>
               
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 1. Backend Automation: The Scalable Workhorse
               </h3>
               <p>Use when: Scraping tolerant targets at scale (e-commerce, news sites, public data)</p>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`# Backend automation with safety features
 from playwright.sync_api import sync_playwright
 import random
@@ -193,15 +146,11 @@ class SafeBackendScraper:
         time.sleep(random.uniform(60, 300))  # Extended break`}
               </pre>
 
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 2. Extension-Based: The Surgical Approach
               </h3>
               <p>Use when: Targeting sensitive platforms (LinkedIn, Udemy, HR portals)</p>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`// Extension-based scraping with human emulation
 class HumanizedScraper {
     constructor() {
@@ -243,23 +192,17 @@ class HumanizedScraper {
 
             {/* Proactive Testing */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Proactive Testing: Finding Limits Before They Find You
               </h2>
               <p>
                 Reactive scraping waits for failure. Proactive testing anticipates it.
               </p>
               
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 Rate Limit Testing
               </h3>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`# Proactive rate limit testing
 class RateLimitTester:
     def __init__(self, target_url):
@@ -291,14 +234,10 @@ class RateLimitTester:
         return successes / 10`}
               </pre>
 
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 Element Stability Testing
               </h3>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`# Testing element consistency
 def test_element_stability(url, selectors, test_runs=5):
     stability_report = {}
@@ -319,19 +258,13 @@ def test_element_stability(url, selectors, test_runs=5):
 
             {/* Decision Framework */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 When to Use Which Approach: Decision Framework
               </h2>
               
               <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <div className={`p-6 rounded-lg border ${
-                  isDarkMode ? 'bg-blue-900/20 border-blue-700' : 'bg-blue-50 border-blue-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold mb-4 ${
-                    isDarkMode ? 'text-blue-300' : 'text-blue-800'
-                  }`}>
+                <div className="p-6 rounded-lg border bg-blue-900/20 border-blue-700">
+                  <h3 className="text-xl font-semibold mb-4 text-primary">
                     Choose Backend Automation When:
                   </h3>
                   <ul className="space-y-2 text-sm">
@@ -342,12 +275,8 @@ def test_element_stability(url, selectors, test_runs=5):
                   </ul>
                 </div>
 
-                <div className={`p-6 rounded-lg border ${
-                  isDarkMode ? 'bg-green-900/20 border-green-700' : 'bg-green-50 border-green-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold mb-4 ${
-                    isDarkMode ? 'text-green-300' : 'text-green-800'
-                  }`}>
+                <div className="p-6 rounded-lg border bg-green-900/20 border-green-700">
+                  <h3 className="text-xl font-semibold mb-4 text-green-300">
                     Choose Extension-Based When:
                   </h3>
                   <ul className="space-y-2 text-sm">
@@ -362,20 +291,14 @@ def test_element_stability(url, selectors, test_runs=5):
 
             {/* Implementing Proactive Testing */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Implementing Proactive Testing
               </h2>
               
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 Continuous Testing Setup
               </h3>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`# GitHub Actions for automated testing
 name: Weekly Limit Testing
 on:
@@ -392,14 +315,10 @@ jobs:
           TEST_ACCOUNT: \${{ secrets.TEST_ACCOUNT }}`}
               </pre>
 
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 Monitoring Dashboard Concept
               </h3>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`// Simple monitoring dashboard
 class ScrapingMonitor {
     constructor() {
@@ -432,9 +351,7 @@ class ScrapingMonitor {
 
             {/* Key Takeaways */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Key Takeaways
               </h2>
               <ul className="list-disc list-inside mt-4 space-y-2 ml-6">
@@ -448,9 +365,7 @@ class ScrapingMonitor {
 
             {/* Implementation Checklist */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Implementation Checklist
               </h2>
               <ol className="list-decimal list-inside mt-4 space-y-2 ml-6">
@@ -466,17 +381,11 @@ class ScrapingMonitor {
 
             {/* Try Transcript Extractor */}
             <section>
-              <div className={`p-6 rounded-lg border ${
-                isDarkMode ? 'bg-blue-900/20 border-blue-700' : 'bg-blue-50 border-blue-200'
-              }`}>
-                <h3 className={`text-xl font-semibold mb-4 ${
-                  isDarkMode ? 'text-blue-300' : 'text-blue-800'
-                }`}>
+              <div className="p-6 rounded-lg border bg-blue-900/20 border-blue-700">
+                <h3 className="text-xl font-semibold mb-4 text-primary">
                   Try Transcript Extractor Free
                 </h3>
-                <p className={`mb-4 ${
-                  isDarkMode ? 'text-blue-200' : 'text-blue-700'
-                }`}>
+                <p className="mb-4 text-blue-200">
                   Experience these strategic principles in action with my Chrome extension designed specifically for educational content:
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -492,9 +401,7 @@ class ScrapingMonitor {
 
             {/* Bottom Line */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Bottom Line
               </h2>
               <p>
@@ -507,12 +414,8 @@ class ScrapingMonitor {
 
             {/* Series Links */}
             <section>
-              <div className={`p-6 rounded-lg border ${
-                isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-300'
-              }`}>
-                <h3 className={`text-xl font-semibold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-800'
-                }`}>
+              <div className="p-6 rounded-lg border border-border">
+                <h3 className="text-xl font-semibold mb-4 text-white">
                   This article completes our three-part series on web scraping strategy. Missed the previous articles?
                 </h3>
                 <div className="space-y-2">
@@ -524,9 +427,7 @@ class ScrapingMonitor {
 
             {/* Social Links */}
             <section>
-              <div className={`p-6 rounded-lg border ${
-                isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-300'
-              }`}>
+              <div className="p-6 rounded-lg border border-border">
                 <p className="mb-4 italic">
                   Connect with me:
                 </p>
@@ -550,15 +451,11 @@ class ScrapingMonitor {
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
-                <div className={`flex items-center space-x-2 text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Target size={16} />
                   <span>Web Scraping</span>
                 </div>
-                <div className={`flex items-center space-x-2 text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Clock size={16} />
                   <span>8 min read</span>
                 </div>
@@ -567,11 +464,7 @@ class ScrapingMonitor {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goBack}
-                className={`px-6 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  isDarkMode
-                    ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                    : 'bg-purple-100 hover:bg-purple-200 text-purple-700'
-                }`}
+                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-purple-600 hover:bg-purple-700 text-white"
               >
                 Back to Portfolio
               </motion.button>

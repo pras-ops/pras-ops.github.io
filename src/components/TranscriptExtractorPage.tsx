@@ -1,7 +1,7 @@
-"use client";
+
 
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   ArrowLeft, Github, Chrome, Zap, Shield, Copy, Download, CheckCircle,
   Globe, Star, Users, Code, Layers, FileText, ArrowRight, PlayCircle
@@ -12,7 +12,7 @@ const SectionLabel: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 );
 
 const TranscriptExtractorPage: React.FC = () => {
-  const navigate = useNavigate();
+
   const REPO = 'https://github.com/pras-ops/udemy-transcript-extractor';
   const CHROME_STORE = 'https://chromewebstore.google.com/detail/transcript-extractor/fjohldgflidaghednclaijiafmchlnbh';
 
