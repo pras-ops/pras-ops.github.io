@@ -1,59 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Clock, Zap, Code, CheckCircle, AlertTriangle, ExternalLink, Sun, Moon, Chrome, Github } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Zap, Code, CheckCircle, AlertTriangle, ExternalLink, Chrome, Github } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../settings/theme';
 
 const BlogPostPage: React.FC = () => {
   const navigate = useNavigate();
-  const { isDarkMode, toggleDarkMode } = useTheme();
-
+  
   const goBack = () => {
     navigate('/');
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+    <div className="min-h-screen grain bg-background text-foreground">
       {/* Header */}
-      <header className={`sticky top-0 z-50 backdrop-blur-xl border-b ${
-        isDarkMode ? 'bg-gray-900/80 border-gray-700' : 'bg-white/90 border-gray-200'
-      }`}>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border nav-glass">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={goBack}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                isDarkMode 
-                  ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
-                  : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
-              }`}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-gray-300 hover:text-blue-400 hover:bg-gray-800"
             >
               <ArrowLeft size={20} />
               <span>Back to Portfolio</span>
             </motion.button>
             
             <div className="flex items-center space-x-4">
-              <button 
-                onClick={toggleDarkMode} 
-                className={`p-2 rounded-lg transition-colors ${
-                  isDarkMode 
-                    ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
-                }`}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <div className={`flex items-center space-x-2 text-sm ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <BookOpen size={16} />
                 <span>Chrome Extensions</span>
               </div>
-              <div className={`flex items-center space-x-2 text-sm ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Clock size={16} />
                 <span>5 min read</span>
               </div>
@@ -68,32 +47,22 @@ const BlogPostPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className={`prose prose-lg max-w-none ${
+          className="prose prose-lg max-w-none ${
             isDarkMode ? 'prose-invert' : ''
-          }`}
+          }"
         >
           {/* Article Header */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                isDarkMode 
-                  ? 'bg-blue-900/30 text-blue-300 border border-blue-700' 
-                  : 'bg-blue-100 text-blue-700 border border-blue-200'
-              }`}>
+              <span className="px-3 py-1 rounded-full text-sm font-medium text-primary">
                 Chrome Extensions
               </span>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                isDarkMode 
-                  ? 'bg-green-900/30 text-green-300 border border-green-700' 
-                  : 'bg-green-100 text-green-700 border border-green-200'
-              }`}>
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-900/30 text-green-300 border border-green-700">
                 Development Tips
               </span>
             </div>
             
-            <h1 className={`text-4xl sm:text-5xl font-bold mb-6 ${
-              isDarkMode ? 'text-white' : 'text-gray-800'
-            }`}>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
               The Waiting Game — How to Handle Chrome Web Store Review Limbo (and Maybe Speed It Up)
             </h1>
             
@@ -107,12 +76,8 @@ const BlogPostPage: React.FC = () => {
               <span>5 min read</span>
             </div>
             
-            <div className={`p-4 rounded-lg border ${
-              isDarkMode ? 'bg-blue-950/20 border-blue-500/25' : 'bg-blue-50 border-blue-200'
-            }`}>
-              <p className={`text-lg leading-relaxed ${
-                isDarkMode ? 'text-blue-200' : 'text-blue-800'
-              }`}>
+            <div className="p-4 rounded-lg border bg-blue-950/20 border-blue-500/25">
+              <p className="text-lg leading-relaxed text-blue-200">
                 <strong>TL;DR:</strong> My Chrome extension was approved in under 48 hours. 
                 The secret? Clean architecture and minimal permissions. Here's how to optimize yours for speed.
               </p>
@@ -120,14 +85,10 @@ const BlogPostPage: React.FC = () => {
           </div>
 
           {/* Article Body */}
-          <div className={`space-y-8 text-lg leading-relaxed ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-700'
-          }`}>
+          <div className="space-y-8 text-lg leading-relaxed text-gray-300">
             {/* Introduction */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Anxiety of the Black Box
               </h2>
               <p>
@@ -145,9 +106,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Why Reviews Take Time */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Why Reviews Take Time: It's Not Personal, It's Process
               </h2>
               <p>
@@ -170,9 +129,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Architecture Matters */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Architecture Matters: My "Easy Button" vs. The "Hard Pass"
               </h2>
               <p>
@@ -181,19 +138,13 @@ const BlogPostPage: React.FC = () => {
               </p>
               
               <div className="mt-6 space-y-6">
-                <div className={`p-6 rounded-lg border ${
-                  isDarkMode ? 'bg-green-900/20 border-green-700' : 'bg-green-50 border-green-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center ${
-                    isDarkMode ? 'text-green-300' : 'text-green-800'
-                  }`}>
+                <div className="p-6 rounded-lg border bg-green-900/20 border-green-700">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-green-300">
                     <CheckCircle size={24} className="mr-3 text-green-500" />
                     🟢 The "Easy Button" (What I Used: Vite + React + TypeScript)
                   </h3>
                   <p className="mb-4">My <code>manifest.json</code> was simple and transparent:</p>
-                  <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                    isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-                  }`}>
+                  <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`{
   "manifest_version": 3,
   "name": "Transcript Extractor",
@@ -213,19 +164,13 @@ const BlogPostPage: React.FC = () => {
                   <p className="mt-4 text-green-600 font-medium text-lg"><strong>Result? Approved in under 48 hours.</strong></p>
                 </div>
 
-                <div className={`p-6 rounded-lg border ${
-                  isDarkMode ? 'bg-red-900/20 border-red-700' : 'bg-red-50 border-red-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center ${
-                    isDarkMode ? 'text-red-300' : 'text-red-800'
-                  }`}>
+                <div className="p-6 rounded-lg border bg-red-900/20 border-red-700">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-red-300">
                     <AlertTriangle size={24} className="mr-3 text-red-500" />
                     🔴 The "Hard Pass" (The Classic Mistake)
                   </h3>
                   <p className="mb-4">Here's the kind of manifest that invites delays:</p>
-                  <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                    isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-                  }`}>
+                  <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`{
   "manifest_version": 3,
   "name": "A Suspicious Extension",
@@ -247,9 +192,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Real-World Pitfalls */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Real-World Pitfalls and How I Avoided Them
               </h2>
               <p>
@@ -257,25 +200,17 @@ const BlogPostPage: React.FC = () => {
                 I consistently saw these patterns cause rejections and long waits:
               </p>
               <div className="mt-6 space-y-4">
-                <div className={`p-4 rounded-lg border ${
-                  isDarkMode ? 'bg-yellow-900/20 border-yellow-700' : 'bg-yellow-50 border-yellow-200'
-                }`}>
+                <div className="p-4 rounded-lg border bg-yellow-900/20 border-yellow-700">
                   <p><strong>The PostHog Team</strong>: Their extension was rejected for using a base64 blob to create a worker. 
                   The rejection stated the code was "hard to understand during review".</p>
                 </div>
-                <div className={`p-4 rounded-lg border ${
-                  isDarkMode ? 'bg-yellow-900/20 border-yellow-700' : 'bg-yellow-50 border-yellow-200'
-                }`}>
+                <div className="p-4 rounded-lg border bg-yellow-900/20 border-yellow-700">
                   <p><strong>Stack Overflow Case</strong>: A developer reported rejections for broad permissions:</p>
-                  <blockquote className={`mt-3 p-4 italic border rounded-lg ${
-                    isDarkMode ? 'border-gray-700 bg-gray-800/40' : 'border-gray-300 bg-gray-100'
-                  }`}>
+                  <blockquote className="mt-3 p-4 italic border rounded-lg border-border">
                     "Your product violates the 'Use of Permissions' section. Request the narrowest permissions necessary"
                   </blockquote>
                 </div>
-                <div className={`p-4 rounded-lg border ${
-                  isDarkMode ? 'bg-yellow-900/20 border-yellow-700' : 'bg-yellow-50 border-yellow-200'
-                }`}>
+                <div className="p-4 rounded-lg border bg-yellow-900/20 border-yellow-700">
                   <p><strong>Obfuscation Backfires</strong>: Many teams added <code>javascript-obfuscator</code> to protect IP, 
                   only to be rejected for "deliberately concealed code".</p>
                 </div>
@@ -284,9 +219,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Pre-Submission Audit */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Your Pre-Submission Audit: The 5-Minute Checklist
               </h2>
               <p>Before submitting, run this audit:</p>
@@ -300,9 +233,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* During the Wait */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 During the Wait: What to Actually Do
               </h2>
               <ul className="list-disc list-inside space-y-3 ml-6">
@@ -313,9 +244,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* If You Get Rejected */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 If You Get Rejected
               </h2>
               <p>Don't despair. Decode and fix:</p>
@@ -329,9 +258,7 @@ const BlogPostPage: React.FC = () => {
                 <p>• <strong>Privacy Policy</strong>: Add a clear policy linked in your dashboard.</p>
               </div>
               <p className="mt-4"><strong>Resubmit with a polite note:</strong></p>
-              <blockquote className={`mt-3 p-4 italic border rounded-lg ${
-                isDarkMode ? 'border-gray-700 bg-gray-800/40' : 'border-gray-300 bg-gray-100'
-              }`}>
+              <blockquote className="mt-3 p-4 italic border rounded-lg border-border">
                 "Reduced permission scope from <code>&lt;all_urls&gt;</code> to <code>activeTab</code>. 
                 Extension now only runs on user-initiated actions."
               </blockquote>
@@ -339,9 +266,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Bottom Line */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Bottom Line
               </h2>
               <p>
@@ -355,17 +280,11 @@ const BlogPostPage: React.FC = () => {
 
             {/* Chrome Extension Links */}
             <section>
-              <div className={`p-6 rounded-lg border ${
-                isDarkMode ? 'bg-blue-900/20 border-blue-700' : 'bg-blue-50 border-blue-200'
-              }`}>
-                <h3 className={`text-xl font-semibold mb-4 ${
-                  isDarkMode ? 'text-blue-300' : 'text-blue-800'
-                }`}>
+              <div className="p-6 rounded-lg border bg-blue-900/20 border-blue-700">
+                <h3 className="text-xl font-semibold mb-4 text-primary">
                   Try My Chrome Extension
                 </h3>
-                <p className={`mb-4 ${
-                  isDarkMode ? 'text-blue-200' : 'text-blue-700'
-                }`}>
+                <p className="mb-4 text-blue-200">
                   Experience the clean architecture principles in action with my Transcript Extractor Chrome extension. 
                   It demonstrates the minimal permissions and transparent code structure discussed in this article.
                 </p>
@@ -388,9 +307,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* References */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 References
               </h2>
               <ol className="list-decimal list-inside space-y-3 ml-6 text-base">
@@ -407,15 +324,11 @@ const BlogPostPage: React.FC = () => {
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
-                <div className={`flex items-center space-x-2 text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <BookOpen size={16} />
                   <span>Chrome Extensions</span>
                 </div>
-                <div className={`flex items-center space-x-2 text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Clock size={16} />
                   <span>5 min read</span>
                 </div>
@@ -424,11 +337,7 @@ const BlogPostPage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goBack}
-                className={`px-6 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  isDarkMode
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                    : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
-                }`}
+                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-blue-600 hover:bg-blue-700 text-white"
               >
                 Back to Portfolio
               </motion.button>

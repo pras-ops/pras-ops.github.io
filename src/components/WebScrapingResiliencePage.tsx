@@ -1,59 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Clock, Shield, Code, CheckCircle, AlertTriangle, ExternalLink, Github, Twitter, Zap, Sun, Moon, Chrome } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Shield, Code, CheckCircle, AlertTriangle, ExternalLink, Github, Twitter, Zap, Chrome } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../settings/theme';
 
 const WebScrapingResiliencePage: React.FC = () => {
   const navigate = useNavigate();
-  const { isDarkMode, toggleDarkMode } = useTheme();
-
+  
   const goBack = () => {
     navigate('/');
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+    <div className="min-h-screen grain bg-background text-foreground">
       {/* Header */}
-      <header className={`sticky top-0 z-50 backdrop-blur-xl border-b ${
-        isDarkMode ? 'bg-gray-900/80 border-gray-700' : 'bg-white/90 border-gray-200'
-      }`}>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border nav-glass">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={goBack}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                isDarkMode 
-                  ? 'text-gray-300 hover:text-purple-400 hover:bg-gray-800' 
-                  : 'text-gray-600 hover:text-purple-600 hover:bg-gray-100'
-              }`}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-gray-300 hover:text-purple-400 hover:bg-gray-800"
             >
               <ArrowLeft size={20} />
               <span>Back to Portfolio</span>
             </motion.button>
             
             <div className="flex items-center space-x-4">
-              <button 
-                onClick={toggleDarkMode} 
-                className={`p-2 rounded-lg transition-colors ${
-                  isDarkMode 
-                    ? 'text-gray-300 hover:text-purple-400 hover:bg-gray-800' 
-                    : 'text-gray-600 hover:text-purple-600 hover:bg-gray-100'
-                }`}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <div className={`flex items-center space-x-2 text-sm ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Shield size={16} />
                 <span>Web Scraping</span>
               </div>
-              <div className={`flex items-center space-x-2 text-sm ${
-                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <Clock size={16} />
                 <span>8 min read</span>
               </div>
@@ -68,32 +47,22 @@ const WebScrapingResiliencePage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className={`prose prose-lg max-w-none ${
+          className="prose prose-lg max-w-none ${
             isDarkMode ? 'prose-invert' : ''
-          }`}
+          }"
         >
           {/* Article Header */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                isDarkMode 
-                  ? 'bg-purple-900/30 text-purple-300 border border-purple-700' 
-                  : 'bg-purple-100 text-purple-700 border border-purple-200'
-              }`}>
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-900/30 text-purple-300 border border-purple-700">
                 Web Scraping
               </span>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                isDarkMode 
-                  ? 'bg-orange-900/30 text-orange-300 border border-orange-700' 
-                  : 'bg-orange-100 text-orange-700 border border-orange-200'
-              }`}>
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-orange-900/30 text-orange-300 border border-orange-700">
                 System Design
               </span>
             </div>
             
-            <h1 className={`text-4xl sm:text-5xl font-bold mb-6 ${
-              isDarkMode ? 'text-white' : 'text-gray-800'
-            }`}>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
               How I Stopped Panicking About Broken Web Scrapers and Started Sleeping Through the Night
             </h1>
             
@@ -103,12 +72,8 @@ const WebScrapingResiliencePage: React.FC = () => {
               <span>8 min read</span>
             </div>
             
-            <div className={`p-4 rounded-lg border ${
-              isDarkMode ? 'bg-purple-950/20 border-purple-500/25' : 'bg-purple-50 border-purple-200'
-            }`}>
-              <p className={`text-lg leading-relaxed ${
-                isDarkMode ? 'text-purple-200' : 'text-purple-800'
-              }`}>
+            <div className="p-4 rounded-lg border bg-purple-950/20 border-purple-500/25">
+              <p className="text-lg leading-relaxed text-purple-200">
                 <strong>TL;DR:</strong> Learn the three-layer defense system that transformed my web scraping 
                 from constant firefighting to predictable operations. No more 2 AM debugging sessions.
               </p>
@@ -116,14 +81,10 @@ const WebScrapingResiliencePage: React.FC = () => {
           </div>
 
           {/* Article Body */}
-          <div className={`space-y-8 text-lg leading-relaxed ${
-            isDarkMode ? 'text-gray-300' : 'text-gray-700'
-          }`}>
+          <div className="space-y-8 text-lg leading-relaxed text-gray-300">
             {/* Introduction */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The 2 AM Wake-Up Call That Changed Everything
               </h2>
               <p>
@@ -146,18 +107,14 @@ const WebScrapingResiliencePage: React.FC = () => {
 
             {/* The Turning Point */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Turning Point: From Reactive to Proactive
               </h2>
               <p>
                 The breakthrough came when I stopped trying to prevent failures and started building systems that expected them. 
                 Here's the mindset shift that changed everything:
               </p>
-              <div className={`mt-4 p-4 rounded-lg border ${
-                isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-gray-100 border-gray-300'
-              }`}>
+              <div className="mt-4 p-4 rounded-lg border bg-gray-800 border-gray-600">
                 <p className="mb-2"><strong>Old approach:</strong> "How can I make my scraper never break?"</p>
                 <p><strong>New approach:</strong> "How can I know immediately when it breaks and fix it fast?"</p>
               </div>
@@ -169,23 +126,17 @@ const WebScrapingResiliencePage: React.FC = () => {
 
             {/* Layer 1: The Resilience Mindset */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Layer 1: The Resilience Mindset
               </h2>
               
-              <h3 className={`text-xl font-semibold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 text-white">
                 Embrace Multiple Fallback Strategies
               </h3>
               <p>
                 Instead of perfect selectors, I now build with intentional redundancy:
               </p>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`// Multiple fallbacks prevent total failure
 const selectors = [
   'button[aria-label="View Transcript"]', // Newest version
@@ -205,15 +156,11 @@ throw new Error('All selectors failed - UI likely changed');`}
                 when websites changed.
               </p>
 
-              <h3 className={`text-xl font-semibold mb-4 mt-8 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
                 The Health Check Revolution
               </h3>
               <p>For critical systems, I implemented automated health checks:</p>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`# Pseudo-code: Health check concept
 def verify_scraper_health():
     critical_steps = [
@@ -233,9 +180,7 @@ def verify_scraper_health():
 
             {/* Layer 2: The GitHub Actions Game Changer */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Layer 2: The GitHub Actions Game Changer
               </h2>
               <p>
@@ -249,9 +194,7 @@ def verify_scraper_health():
                 <li><strong>Secure secret management</strong> via GitHub Secrets</li>
               </ul>
               <p className="mt-4">The configuration was surprisingly simple:</p>
-                             <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                 isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-               }`}>
+                             <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`# .github/workflows/scraper-monitor.yml
 name: Scraper Health Check
 on:
@@ -279,19 +222,13 @@ jobs:
 
             {/* The Results */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Results That Changed Everything
               </h2>
               
               <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <div className={`p-6 rounded-lg border ${
-                  isDarkMode ? 'bg-red-900/20 border-red-700' : 'bg-red-50 border-red-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center ${
-                    isDarkMode ? 'text-red-300' : 'text-red-800'
-                  }`}>
+                <div className="p-6 rounded-lg border bg-red-900/20 border-red-700">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-red-300">
                     <AlertTriangle size={24} className="mr-3 text-red-500" />
                     Before (6-month baseline)
                   </h3>
@@ -303,12 +240,8 @@ jobs:
                   </ul>
                 </div>
 
-                <div className={`p-6 rounded-lg border ${
-                  isDarkMode ? 'bg-green-900/20 border-green-700' : 'bg-green-50 border-green-200'
-                }`}>
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center ${
-                    isDarkMode ? 'text-green-300' : 'text-green-800'
-                  }`}>
+                <div className="p-6 rounded-lg border bg-green-900/20 border-green-700">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-green-300">
                     <CheckCircle size={24} className="mr-3 text-green-500" />
                     After (6 months post-implementation)
                   </h3>
@@ -330,9 +263,7 @@ jobs:
 
             {/* Strategic Insight */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Strategic Insight Most People Miss
               </h2>
               <p>
@@ -342,9 +273,7 @@ jobs:
               <p className="mt-4">
                 For my Chrome extension, I keep the production code deliberately simple. I also improved transcript quality by switching from line-based to word-based chunking (~55 words per chunk), eliminating orphan chunks and making output more AI-friendly.
               </p>
-              <pre className={`p-4 rounded text-sm overflow-x-auto ${
-                isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-800'
-              }`}>
+              <pre className="p-4 rounded text-sm overflow-x-auto bg-card border-border">
 {`// Clean, minimal code for Chrome Web Store approval
 const selectors = [
   '[data-purpose="transcript-cue"]',
@@ -372,9 +301,7 @@ export class TranscriptExtractor {
 
             {/* Practical Takeaways */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Your Practical Takeaways
               </h2>
               <ol className="list-decimal list-inside mt-4 space-y-3 ml-6">
@@ -388,9 +315,7 @@ export class TranscriptExtractor {
 
             {/* What's Next */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 What's Next
               </h2>
               <p>
@@ -403,9 +328,7 @@ export class TranscriptExtractor {
 
             {/* Bottom Line */}
             <section>
-              <h2 className={`text-2xl font-bold mb-4 ${
-                isDarkMode ? 'text-white' : 'text-gray-800'
-              }`}>
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 The Bottom Line
               </h2>
               <p>
@@ -424,17 +347,11 @@ export class TranscriptExtractor {
 
             {/* Chrome Extension Links */}
             <section>
-              <div className={`p-6 rounded-lg border ${
-                isDarkMode ? 'bg-blue-900/20 border-blue-700' : 'bg-blue-50 border-blue-200'
-              }`}>
-                <h3 className={`text-xl font-semibold mb-4 ${
-                  isDarkMode ? 'text-blue-300' : 'text-blue-800'
-                }`}>
+              <div className="p-6 rounded-lg border bg-blue-900/20 border-blue-700">
+                <h3 className="text-xl font-semibold mb-4 text-primary">
                   Try My Chrome Extension
                 </h3>
-                <p className={`mb-4 ${
-                  isDarkMode ? 'text-blue-200' : 'text-blue-700'
-                }`}>
+                <p className="mb-4 text-blue-200">
                   Experience the resilience principles in action with my Transcript Extractor Chrome extension. 
                   It demonstrates the multi-fallback approach and robust error handling discussed in this article.
                 </p>
@@ -457,9 +374,7 @@ export class TranscriptExtractor {
 
             {/* Social Links */}
             <section>
-              <div className={`p-6 rounded-lg border ${
-                isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-300'
-              }`}>
+              <div className="p-6 rounded-lg border border-border">
                 <p className="mb-4 italic">
                   Enjoyed this article? I share more technical insights on my blog and social media.
                 </p>
@@ -483,15 +398,11 @@ export class TranscriptExtractor {
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
-                <div className={`flex items-center space-x-2 text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Shield size={16} />
                   <span>Web Scraping</span>
                 </div>
-                <div className={`flex items-center space-x-2 text-sm ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Clock size={16} />
                   <span>8 min read</span>
                 </div>
@@ -500,11 +411,7 @@ export class TranscriptExtractor {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goBack}
-                className={`px-6 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  isDarkMode
-                    ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                    : 'bg-purple-100 hover:bg-purple-200 text-purple-700'
-                }`}
+                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-purple-600 hover:bg-purple-700 text-white"
               >
                 Back to Portfolio
               </motion.button>

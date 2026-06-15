@@ -9,7 +9,7 @@ import StrategicScrapingPage from './components/StrategicScrapingPage';
 import CagPage from './components/CagPage';
 import BrowserPiiShieldPage from './components/BrowserPiiShieldPage';
 import ScrapeWizardPage from './components/ScrapeWizardPage';
-import { ThemeProvider } from './settings/theme';
+
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -25,7 +25,7 @@ function ScrollToTop() {
 function App() {
   const generatedComponent = useMemo(() => {
     return (
-      <ThemeProvider>
+
         <Router>
           <ScrollToTop />
           <Routes>
@@ -40,7 +40,7 @@ function App() {
             <Route path="/blog/strategic-web-scraping" element={<StrategicScrapingPage />} />
           </Routes>
         </Router>
-      </ThemeProvider>
+
     );
   }, []);
 
