@@ -20,7 +20,7 @@ const BlogPostPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={goBack}
-              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-gray-300 hover:text-blue-400 hover:bg-gray-800"
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-secondary"
             >
               <ArrowLeft size={20} />
               <span>Back to Portfolio</span>
@@ -28,11 +28,11 @@ const BlogPostPage: React.FC = () => {
             
             <div className="flex items-center space-x-4">
               
-              <div className="flex items-center space-x-2 text-sm text-gray-400">
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <BookOpen size={16} />
                 <span>Chrome Extensions</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-400">
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Clock size={16} />
                 <span>5 min read</span>
               </div>
@@ -47,9 +47,7 @@ const BlogPostPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="prose prose-lg max-w-none ${
-            isDarkMode ? 'prose-invert' : ''
-          }"
+          className="prose prose-lg prose-invert max-w-none"
         >
           {/* Article Header */}
           <div className="mb-12">
