@@ -41,9 +41,7 @@ const StrategicScrapingPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="prose prose-lg max-w-none ${
-            isDarkMode ? 'prose-invert prose-p:text-muted-foreground prose-headings:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground' : ''
-          }"
+          className="prose prose-lg max-w-none prose-invert prose-p:text-muted-foreground prose-headings:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground"
         >
           {/* Article Header */}
           <div className="mb-12">
@@ -51,7 +49,7 @@ const StrategicScrapingPage: React.FC = () => {
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
                 Web Scraping
               </span>
-              <span className="px-3 py-1 rounded-full text-sm font-medium bg-orange-900/30 text-orange-300 border border-orange-700">
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-accent/10 text-accent border border-accent/20">
                 Strategy
               </span>
             </div>
@@ -66,8 +64,8 @@ const StrategicScrapingPage: React.FC = () => {
               <span>8 min read</span>
             </div>
             
-            <div className="p-4 rounded-lg border bg-purple-950/20 border-purple-500/25">
-              <p className="text-lg leading-relaxed text-purple-200">
+            <div className="p-4 rounded-lg border bg-secondary/50 border-border">
+              <p className="text-lg leading-relaxed text-foreground">
                 <strong>TL;DR:</strong> After losing three LinkedIn accounts to aggressive backend automation, I learned the hard way that successful web scraping isn't about technical prowess alone—it's about strategic thinking. The key is matching the right approach to your specific target and implementing proactive testing to avoid catastrophic failures.
               </p>
             </div>
@@ -427,7 +425,7 @@ class ScrapingMonitor {
                 </p>
                 <div className="flex space-x-4">
                   <a href="https://github.com/pras-ops" target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 bg-gray-800 text-foreground rounded-lg hover:bg-gray-700 transition-colors">
+                     className="inline-flex items-center px-4 py-2 bg-secondary text-foreground border border-border rounded-lg hover:bg-secondary/80 transition-colors">
                     <Github size={16} className="mr-2" />
                     GitHub
                   </a>
@@ -442,7 +440,7 @@ class ScrapingMonitor {
           </div>
 
           {/* Article Footer */}
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="mt-12 pt-8 border-t border-border">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
@@ -458,7 +456,7 @@ class ScrapingMonitor {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goBack}
-                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-purple-600 hover:bg-purple-700 text-foreground"
+                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-primary hover:brightness-110 text-foreground"
               >
                 Back to Portfolio
               </motion.button>
