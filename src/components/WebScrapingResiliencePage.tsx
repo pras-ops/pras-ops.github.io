@@ -16,23 +16,17 @@ const WebScrapingResiliencePage: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-border nav-glass">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={goBack}
-              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-gray-300 hover:text-purple-400 hover:bg-gray-800"
-            >
-              <ArrowLeft size={20} />
-              <span>Back to Portfolio</span>
-            </motion.button>
+            <button onClick={goBack} className="press inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft size={18} /> Back to portfolio
+            </button>
             
             <div className="flex items-center space-x-4">
               
-              <div className="flex items-center space-x-2 text-sm text-gray-400">
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Shield size={16} />
                 <span>Web Scraping</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-400">
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Clock size={16} />
                 <span>8 min read</span>
               </div>
@@ -42,19 +36,19 @@ const WebScrapingResiliencePage: React.FC = () => {
       </header>
 
       {/* Article Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12">
+      <main className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="prose prose-lg max-w-none ${
-            isDarkMode ? 'prose-invert' : ''
+            isDarkMode ? 'prose-invert prose-p:text-muted-foreground prose-headings:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground' : ''
           }"
         >
           {/* Article Header */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-900/30 text-purple-300 border border-purple-700">
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
                 Web Scraping
               </span>
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-orange-900/30 text-orange-300 border border-orange-700">
@@ -62,11 +56,11 @@ const WebScrapingResiliencePage: React.FC = () => {
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
               How I Stopped Panicking About Broken Web Scrapers and Started Sleeping Through the Night
             </h1>
             
-            <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
+            <div className="flex items-center space-x-6 text-sm text-muted-foreground mb-6">
               <span>Published on May 22, 2024</span>
               <span>•</span>
               <span>8 min read</span>
@@ -81,10 +75,10 @@ const WebScrapingResiliencePage: React.FC = () => {
           </div>
 
           {/* Article Body */}
-          <div className="space-y-8 text-lg leading-relaxed text-gray-300">
+          <div className="space-y-8 text-lg leading-relaxed text-muted-foreground">
             {/* Introduction */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The 2 AM Wake-Up Call That Changed Everything
               </h2>
               <p>
@@ -107,7 +101,7 @@ const WebScrapingResiliencePage: React.FC = () => {
 
             {/* The Turning Point */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The Turning Point: From Reactive to Proactive
               </h2>
               <p>
@@ -126,11 +120,11 @@ const WebScrapingResiliencePage: React.FC = () => {
 
             {/* Layer 1: The Resilience Mindset */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Layer 1: The Resilience Mindset
               </h2>
               
-              <h3 className="text-xl font-semibold mb-4 text-white">
+              <h3 className="text-xl font-semibold mb-4 text-foreground">
                 Embrace Multiple Fallback Strategies
               </h3>
               <p>
@@ -156,7 +150,7 @@ throw new Error('All selectors failed - UI likely changed');`}
                 when websites changed.
               </p>
 
-              <h3 className="text-xl font-semibold mb-4 mt-8 text-white">
+              <h3 className="text-xl font-semibold mb-4 mt-8 text-foreground">
                 The Health Check Revolution
               </h3>
               <p>For critical systems, I implemented automated health checks:</p>
@@ -180,7 +174,7 @@ def verify_scraper_health():
 
             {/* Layer 2: The GitHub Actions Game Changer */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Layer 2: The GitHub Actions Game Changer
               </h2>
               <p>
@@ -222,14 +216,14 @@ jobs:
 
             {/* The Results */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The Results That Changed Everything
               </h2>
               
               <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <div className="p-6 rounded-lg border bg-red-900/20 border-red-700">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center text-red-300">
-                    <AlertTriangle size={24} className="mr-3 text-red-500" />
+                <div className="p-6 rounded-lg border bg-destructive/10 border-destructive/20">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-destructive">
+                    <AlertTriangle size={24} className="mr-3 text-destructive" />
                     Before (6-month baseline)
                   </h3>
                   <ul className="space-y-2 text-sm">
@@ -240,9 +234,9 @@ jobs:
                   </ul>
                 </div>
 
-                <div className="p-6 rounded-lg border bg-green-900/20 border-green-700">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center text-green-300">
-                    <CheckCircle size={24} className="mr-3 text-green-500" />
+                <div className="p-6 rounded-lg border bg-primary/10 border-primary/20">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
+                    <CheckCircle size={24} className="mr-3 text-primary" />
                     After (6 months post-implementation)
                   </h3>
                   <ul className="space-y-2 text-sm">
@@ -263,7 +257,7 @@ jobs:
 
             {/* Strategic Insight */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The Strategic Insight Most People Miss
               </h2>
               <p>
@@ -301,7 +295,7 @@ export class TranscriptExtractor {
 
             {/* Practical Takeaways */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Your Practical Takeaways
               </h2>
               <ol className="list-decimal list-inside mt-4 space-y-3 ml-6">
@@ -315,7 +309,7 @@ export class TranscriptExtractor {
 
             {/* What's Next */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 What's Next
               </h2>
               <p>
@@ -328,7 +322,7 @@ export class TranscriptExtractor {
 
             {/* Bottom Line */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The Bottom Line
               </h2>
               <p>
@@ -347,24 +341,24 @@ export class TranscriptExtractor {
 
             {/* Chrome Extension Links */}
             <section>
-              <div className="p-6 rounded-lg border bg-blue-900/20 border-blue-700">
+              <div className="p-6 rounded-lg border bg-card/40 border-border">
                 <h3 className="text-xl font-semibold mb-4 text-primary">
                   Try My Chrome Extension
                 </h3>
-                <p className="mb-4 text-blue-200">
+                <p className="mb-4 text-foreground">
                   Experience the resilience principles in action with my Transcript Extractor Chrome extension. 
                   It demonstrates the multi-fallback approach and robust error handling discussed in this article.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="https://chromewebstore.google.com/detail/transcript-extractor/fjohldgflidaghednclaijiafmchlnbh" 
                      target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                     className="inline-flex items-center px-4 py-2 bg-primary text-foreground rounded-lg hover:brightness-110 transition-colors">
                     <Chrome size={16} className="mr-2" />
                     Add to Chrome
                   </a>
                   <a href="https://github.com/pras-ops/udemy-transcript-extractor" 
                      target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+                     className="inline-flex items-center px-4 py-2 border-2 border-border text-primary rounded-lg hover:bg-primary hover:text-foreground transition-colors">
                     <Github size={16} className="mr-2" />
                     View Source Code
                   </a>
@@ -380,12 +374,12 @@ export class TranscriptExtractor {
                 </p>
                 <div className="flex space-x-4">
                   <a href="https://github.com/pras-ops" target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                     className="inline-flex items-center px-4 py-2 bg-gray-800 text-foreground rounded-lg hover:bg-gray-700 transition-colors">
                     <Github size={16} className="mr-2" />
                     GitHub
                   </a>
                   <a href="https://linkedin.com/in/prashant--j" target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                     className="inline-flex items-center px-4 py-2 bg-primary text-foreground rounded-lg hover:brightness-110 transition-colors">
                     <ExternalLink size={16} className="mr-2" />
                     LinkedIn
                   </a>
@@ -398,11 +392,11 @@ export class TranscriptExtractor {
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Shield size={16} />
                   <span>Web Scraping</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Clock size={16} />
                   <span>8 min read</span>
                 </div>
@@ -411,7 +405,7 @@ export class TranscriptExtractor {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goBack}
-                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-purple-600 hover:bg-purple-700 text-white"
+                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-purple-600 hover:bg-purple-700 text-foreground"
               >
                 Back to Portfolio
               </motion.button>

@@ -16,15 +16,9 @@ const BlogPostPage: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-border nav-glass">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={goBack}
-              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-secondary"
-            >
-              <ArrowLeft size={20} />
-              <span>Back to Portfolio</span>
-            </motion.button>
+            <button onClick={goBack} className="press inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft size={18} /> Back to portfolio
+            </button>
             
             <div className="flex items-center space-x-4">
               
@@ -42,12 +36,12 @@ const BlogPostPage: React.FC = () => {
       </header>
 
       {/* Article Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12">
+      <main className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="prose prose-lg prose-invert max-w-none"
+          className="prose prose-lg prose-invert prose-p:text-muted-foreground prose-headings:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground max-w-none"
         >
           {/* Article Header */}
           <div className="mb-12">
@@ -55,16 +49,16 @@ const BlogPostPage: React.FC = () => {
               <span className="px-3 py-1 rounded-full text-sm font-medium text-primary">
                 Chrome Extensions
               </span>
-              <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-900/30 text-green-300 border border-green-700">
+              <span className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
                 Development Tips
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
               The Waiting Game — How to Handle Chrome Web Store Review Limbo (and Maybe Speed It Up)
             </h1>
             
-            <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
+            <div className="flex items-center space-x-6 text-sm text-muted-foreground mb-6">
               <span>Published on {new Date().toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
@@ -74,8 +68,8 @@ const BlogPostPage: React.FC = () => {
               <span>5 min read</span>
             </div>
             
-            <div className="p-4 rounded-lg border bg-blue-950/20 border-blue-500/25">
-              <p className="text-lg leading-relaxed text-blue-200">
+            <div className="p-4 rounded-lg border bg-secondary/50 border-border">
+              <p className="text-lg leading-relaxed text-foreground">
                 <strong>TL;DR:</strong> My Chrome extension was approved in under 48 hours. 
                 The secret? Clean architecture and minimal permissions. Here's how to optimize yours for speed.
               </p>
@@ -83,10 +77,10 @@ const BlogPostPage: React.FC = () => {
           </div>
 
           {/* Article Body */}
-          <div className="space-y-8 text-lg leading-relaxed text-gray-300">
+          <div className="space-y-8 text-lg leading-relaxed text-muted-foreground">
             {/* Introduction */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The Anxiety of the Black Box
               </h2>
               <p>
@@ -104,7 +98,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Why Reviews Take Time */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Why Reviews Take Time: It's Not Personal, It's Process
               </h2>
               <p>
@@ -127,7 +121,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Architecture Matters */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Architecture Matters: My "Easy Button" vs. The "Hard Pass"
               </h2>
               <p>
@@ -136,9 +130,9 @@ const BlogPostPage: React.FC = () => {
               </p>
               
               <div className="mt-6 space-y-6">
-                <div className="p-6 rounded-lg border bg-green-900/20 border-green-700">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center text-green-300">
-                    <CheckCircle size={24} className="mr-3 text-green-500" />
+                <div className="p-6 rounded-lg border bg-primary/10 border-primary/20">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-primary">
+                    <CheckCircle size={24} className="mr-3 text-primary" />
                     🟢 The "Easy Button" (What I Used: Vite + React + TypeScript)
                   </h3>
                   <p className="mb-4">My <code>manifest.json</code> was simple and transparent:</p>
@@ -159,12 +153,12 @@ const BlogPostPage: React.FC = () => {
                     <li><strong>Minimal Permissions</strong>: I used only what I could justify. Broad permissions like <code>&lt;all_urls&gt;</code> are instant red flags.</li>
                     <li><strong>Small Bundle</strong>: The entire build was ~50KB. Smaller surface area = fewer questions.</li>
                   </ul>
-                  <p className="mt-4 text-green-600 font-medium text-lg"><strong>Result? Approved in under 48 hours.</strong></p>
+                  <p className="mt-4 text-primary font-medium text-lg"><strong>Result? Approved in under 48 hours.</strong></p>
                 </div>
 
-                <div className="p-6 rounded-lg border bg-red-900/20 border-red-700">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center text-red-300">
-                    <AlertTriangle size={24} className="mr-3 text-red-500" />
+                <div className="p-6 rounded-lg border bg-destructive/10 border-destructive/20">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center text-destructive">
+                    <AlertTriangle size={24} className="mr-3 text-destructive" />
                     🔴 The "Hard Pass" (The Classic Mistake)
                   </h3>
                   <p className="mb-4">Here's the kind of manifest that invites delays:</p>
@@ -190,7 +184,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Real-World Pitfalls */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Real-World Pitfalls and How I Avoided Them
               </h2>
               <p>
@@ -198,17 +192,17 @@ const BlogPostPage: React.FC = () => {
                 I consistently saw these patterns cause rejections and long waits:
               </p>
               <div className="mt-6 space-y-4">
-                <div className="p-4 rounded-lg border bg-yellow-900/20 border-yellow-700">
+                <div className="p-4 rounded-lg border bg-accent/10 border-accent/20">
                   <p><strong>The PostHog Team</strong>: Their extension was rejected for using a base64 blob to create a worker. 
                   The rejection stated the code was "hard to understand during review".</p>
                 </div>
-                <div className="p-4 rounded-lg border bg-yellow-900/20 border-yellow-700">
+                <div className="p-4 rounded-lg border bg-accent/10 border-accent/20">
                   <p><strong>Stack Overflow Case</strong>: A developer reported rejections for broad permissions:</p>
                   <blockquote className="mt-3 p-4 italic border rounded-lg border-border">
                     "Your product violates the 'Use of Permissions' section. Request the narrowest permissions necessary"
                   </blockquote>
                 </div>
-                <div className="p-4 rounded-lg border bg-yellow-900/20 border-yellow-700">
+                <div className="p-4 rounded-lg border bg-accent/10 border-accent/20">
                   <p><strong>Obfuscation Backfires</strong>: Many teams added <code>javascript-obfuscator</code> to protect IP, 
                   only to be rejected for "deliberately concealed code".</p>
                 </div>
@@ -217,7 +211,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Pre-Submission Audit */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 Your Pre-Submission Audit: The 5-Minute Checklist
               </h2>
               <p>Before submitting, run this audit:</p>
@@ -231,7 +225,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* During the Wait */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 During the Wait: What to Actually Do
               </h2>
               <ul className="list-disc list-inside space-y-3 ml-6">
@@ -242,7 +236,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* If You Get Rejected */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 If You Get Rejected
               </h2>
               <p>Don't despair. Decode and fix:</p>
@@ -264,7 +258,7 @@ const BlogPostPage: React.FC = () => {
 
             {/* Bottom Line */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 The Bottom Line
               </h2>
               <p>
@@ -278,24 +272,24 @@ const BlogPostPage: React.FC = () => {
 
             {/* Chrome Extension Links */}
             <section>
-              <div className="p-6 rounded-lg border bg-blue-900/20 border-blue-700">
+              <div className="p-6 rounded-lg border bg-card/40 border-border">
                 <h3 className="text-xl font-semibold mb-4 text-primary">
                   Try My Chrome Extension
                 </h3>
-                <p className="mb-4 text-blue-200">
+                <p className="mb-4 text-foreground">
                   Experience the clean architecture principles in action with my Transcript Extractor Chrome extension. 
                   It demonstrates the minimal permissions and transparent code structure discussed in this article.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="https://chromewebstore.google.com/detail/transcript-extractor/fjohldgflidaghednclaijiafmchlnbh" 
                      target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                     className="inline-flex items-center px-4 py-2 bg-primary text-foreground rounded-lg hover:brightness-110 transition-colors">
                     <Chrome size={16} className="mr-2" />
                     Add to Chrome
                   </a>
                   <a href="https://github.com/pras-ops/udemy-transcript-extractor" 
                      target="_blank" rel="noopener noreferrer" 
-                     className="inline-flex items-center px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+                     className="inline-flex items-center px-4 py-2 border-2 border-border text-primary rounded-lg hover:bg-primary hover:text-foreground transition-colors">
                     <Github size={16} className="mr-2" />
                     View Source Code
                   </a>
@@ -305,15 +299,15 @@ const BlogPostPage: React.FC = () => {
 
             {/* References */}
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">
                 References
               </h2>
               <ol className="list-decimal list-inside space-y-3 ml-6 text-base">
-                <li><a href="https://developer.chrome.com/docs/webstore/review-process" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline inline-flex items-center">Chrome Web Store Review Process <ExternalLink size={16} className="ml-1" /></a></li>
-                <li><a href="https://groups.google.com/a/chromium.org/g/chromium-extensions/c/mwXypiQ7R4U" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline inline-flex items-center">Google Groups Discussion on Pending Reviews <ExternalLink size={16} className="ml-1" /></a></li>
-                <li><a href="https://developer.chrome.com/docs/extensions/whats-new" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline inline-flex items-center">Chrome Extensions Blog: What's New <ExternalLink size={16} className="ml-1" /></a></li>
-                <li><a href="https://developer.chrome.com/docs/webstore/program_policies" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline inline-flex items-center">Chrome Web Store Policy Updates <ExternalLink size={16} className="ml-1" /></a></li>
-                <li><a href="https://blog.ploeh.dk/2023/03/20/on-trust-in-software-development/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline inline-flex items-center">On Trust in Software Development <ExternalLink size={16} className="ml-1" /></a></li>
+                <li><a href="https://developer.chrome.com/docs/webstore/review-process" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">Chrome Web Store Review Process <ExternalLink size={16} className="ml-1" /></a></li>
+                <li><a href="https://groups.google.com/a/chromium.org/g/chromium-extensions/c/mwXypiQ7R4U" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">Google Groups Discussion on Pending Reviews <ExternalLink size={16} className="ml-1" /></a></li>
+                <li><a href="https://developer.chrome.com/docs/extensions/whats-new" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">Chrome Extensions Blog: What's New <ExternalLink size={16} className="ml-1" /></a></li>
+                <li><a href="https://developer.chrome.com/docs/webstore/program_policies" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">Chrome Web Store Policy Updates <ExternalLink size={16} className="ml-1" /></a></li>
+                <li><a href="https://blog.ploeh.dk/2023/03/20/on-trust-in-software-development/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">On Trust in Software Development <ExternalLink size={16} className="ml-1" /></a></li>
               </ol>
             </section>
           </div>
@@ -322,11 +316,11 @@ const BlogPostPage: React.FC = () => {
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <BookOpen size={16} />
                   <span>Chrome Extensions</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Clock size={16} />
                   <span>5 min read</span>
                 </div>
@@ -335,7 +329,7 @@ const BlogPostPage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={goBack}
-                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-blue-600 hover:bg-blue-700 text-white"
+                className="px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-primary hover:brightness-110 text-foreground"
               >
                 Back to Portfolio
               </motion.button>
