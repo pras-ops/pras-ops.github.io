@@ -97,7 +97,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
           }}
         />
       )}
-      <div className="relative z-0" style={{ transform: 'translateZ(40px)', transformStyle: 'preserve-3d' }}>
+      <div className="relative z-20 h-full flex flex-col justify-between" style={{ transform: 'translateZ(40px)' }}>
         {children}
       </div>
     </motion.div>
