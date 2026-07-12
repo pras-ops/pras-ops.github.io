@@ -91,12 +91,12 @@ const PortfolioPage: React.FC = () => {
       icon: Shield
     },
     {
-      title: 'CAG — Feedback-Learning Retrieval',
-      description: 'A lightweight layer over a retrieval system that learns which retrieved chunks actually produce good outcomes — boosting what helps and decaying what goes stale. Built on per-document Beta counters updated from verifier, behavioral and LLM-judge feedback, with explicit safeguards against noisy and sycophantic signals.',
+      title: 'RRL — Retrieval Reputation Layer',
+      description: 'A lightweight reputation layer that sits on top of any retriever and converts verified downstream outcomes into a ranking signal — boosting documents that have actually helped and decaying ones that go stale. Built on per-document Beta counters with safeguards against sycophantic feedback.',
       demo: '',
-      github: 'https://github.com/pras-ops/rag-feedback-loop',
+      github: 'https://github.com/pras-ops/retrieval-reputation-layer',
       route: '/cag',
-      tech: ['Python', 'FastAPI', 'Sentence-Transformers', 'Bandit · RRF'],
+      tech: ['Python', 'FastAPI', 'Sentence-Transformers', 'Thompson Sampling'],
       category: 'Applied AI · Research',
       icon: Layers
     },
