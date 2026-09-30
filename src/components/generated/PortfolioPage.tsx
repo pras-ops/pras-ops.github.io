@@ -418,7 +418,7 @@ const PortfolioPage: React.FC = () => {
 
                 {/* Other Projects - 3 Column Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {projects.slice(1).map((project, idx) => (
+                  {projects.filter(p => p.title !== 'Browser PII Shield').map((project, idx) => (
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 20 }}

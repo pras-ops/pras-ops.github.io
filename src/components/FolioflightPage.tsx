@@ -2,14 +2,13 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  ArrowLeft, Moon, Sun, Shield, Wand2, FileText, Wrench, Bookmark, AlertTriangle, Mail, Bell,
+  ArrowLeft, Shield, Wand2, FileText, Wrench, Bookmark, AlertTriangle, Mail, Bell,
   KeyRound, EyeOff, Cpu, ListChecks, Brain, Sparkles, Lock, CheckCircle, CircleDashed, Chrome, X,
   ChevronLeft, ChevronRight, ExternalLink,
 } from "lucide-react";
-import { useTheme } from "../settings/theme";
 
 const PRIVACY_URL = "/privacy/folioflight.html";
 
@@ -49,7 +48,6 @@ const privacyPoints = [
 const stack = ["TypeScript", "React", "Chrome MV3", "transformers.js", "Chrome Prompt API", "pdf.js", "IndexedDB", "Playwright", "Vite"];
 
 export default function FolioflightPage() {
-  const { isDarkMode, toggleDarkMode } = useTheme();
   const navigate = useNavigate();
   const [shot, setShot] = useState<number | null>(null);
 
@@ -68,16 +66,15 @@ export default function FolioflightPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [shot]);
 
-  const muted = isDarkMode ? "text-slate-400" : "text-gray-600";
-  const heading = isDarkMode ? "text-white" : "text-gray-900";
-  const card = isDarkMode ? "bg-slate-900/60 border-white/10" : "bg-white border-gray-200";
-  const chip = isDarkMode ? "bg-slate-800/70 text-slate-300 border-white/10" : "bg-gray-100 text-gray-700 border-gray-200";
-  const floatBtn = isDarkMode ? "bg-slate-900/90 border-white/10 text-slate-300" : "bg-white/90 border-gray-200 text-gray-600";
+  const muted = "text-muted-foreground";
+  const heading = "text-foreground";
+  const card = "glass-panel bg-card/40 border-border";
+  const chip = "bg-secondary text-foreground border-border";
 
   const Section = ({ title, kicker, children, alt }: { title: string; kicker?: string; children: React.ReactNode; alt?: boolean }) => (
-    <section className={`py-16 sm:py-20 ${alt ? (isDarkMode ? "bg-slate-900/40" : "bg-gray-50") : ""}`}>
+    <section className={`py-16 sm:py-20 ${alt ? "bg-card/20" : ""}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {kicker && <p className="text-sm font-semibold tracking-wide uppercase text-sky-500 mb-2">{kicker}</p>}
+        {kicker && <div className="section-label mb-3">{kicker}</div>}
         <h2 className={`text-2xl sm:text-3xl font-bold mb-8 ${heading}`}>{title}</h2>
         {children}
       </div>
@@ -85,17 +82,24 @@ export default function FolioflightPage() {
   );
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? "bg-[#020617] text-slate-100" : "bg-white text-gray-900"} font-sans`}>
-      <button onClick={() => navigate("/")} className={`fixed top-4 left-4 sm:top-6 sm:left-6 z-40 p-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg border backdrop-blur flex items-center gap-2 hover:text-sky-500 transition-colors ${floatBtn}`}>
-        <ArrowLeft className="w-4 h-4" />
-        <span className="text-sm font-medium hidden sm:inline">Back to Portfolio</span>
-      </button>
-      <button onClick={toggleDarkMode} aria-label="Toggle theme" className={`fixed top-4 right-4 sm:top-6 sm:right-6 z-40 p-2.5 rounded-full shadow-lg border backdrop-blur transition-colors ${floatBtn}`}>
-        {isDarkMode ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4" />}
-      </button>
+    <div className="min-h-screen grain bg-background text-foreground font-sans">
+      <header className="fixed top-0 left-0 right-0 z-40 border-b border-border nav-glass">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+          <Link to="/" className="press inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <ArrowLeft size={18} /> Back to portfolio
+          </Link>
+          <a href={PRIVACY_URL} className="press inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full border border-border hover:border-primary/50 transition-colors">
+            <Shield size={16} /> Privacy
+          </a>
+        </div>
+      </header>
 
       {/* Hero */}
-      <section className={`relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 ${isDarkMode ? "bg-gradient-to-b from-sky-950/40 via-[#020617] to-[#020617]" : "bg-gradient-to-b from-sky-50 via-white to-white"}`}>
+      <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20">
+        <div
+          className="absolute inset-0 -z-10 pointer-events-none"
+          style={{ background: "radial-gradient(60% 60% at 50% 0%, color-mix(in oklch, var(--primary) 16%, transparent), transparent 70%)" }}
+        />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.img
             src="/images/folioflight/icon-128.png" alt="Folioflight logo" width={96} height={96}
@@ -103,7 +107,7 @@ export default function FolioflightPage() {
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
           />
           <h1 className={`text-4xl sm:text-6xl font-bold tracking-tight mb-4 ${heading}`}>Folioflight</h1>
-          <p className="text-lg sm:text-2xl font-medium text-sky-500 mb-5">Private job-application autofill &amp; tracker</p>
+          <p className="text-lg sm:text-2xl font-medium text-primary mb-5">Private job-application autofill &amp; tracker</p>
           <p className={`text-base sm:text-lg max-w-2xl mx-auto mb-8 ${muted}`}>
             A Chrome extension that fills job forms from your profile, records which resume version you sent, and keeps your board
             up to date from your email. Everything runs locally. The small AI models only <em>match</em> your own data to questions.
@@ -113,7 +117,7 @@ export default function FolioflightPage() {
             <span className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border cursor-default ${chip}`}>
               <Chrome className="w-5 h-5" /> Chrome Web Store · coming soon
             </span>
-            <a href={PRIVACY_URL} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold bg-sky-600 text-white hover:bg-sky-500 transition-colors">
+            <a href={PRIVACY_URL} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold press bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
               <Shield className="w-5 h-5" /> Privacy policy
             </a>
           </div>
@@ -128,7 +132,7 @@ export default function FolioflightPage() {
       {/* Screenshots */}
       <section className="pb-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <button onClick={() => setShot(0)} className={`block w-full rounded-2xl overflow-hidden border shadow-2xl ${isDarkMode ? "border-white/10 shadow-sky-950/50" : "border-gray-200"}`}>
+          <button onClick={() => setShot(0)} className={`block w-full rounded-2xl overflow-hidden border shadow-2xl border-border`}>
             <img src={screenshots[0].src} alt={screenshots[0].caption} className="w-full h-auto" />
           </button>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
@@ -150,7 +154,7 @@ export default function FolioflightPage() {
             { big: "~30%", text: "Free autofill tools miss about 30% of Workday fields. Folioflight fills React state correctly and learns your fixes." },
           ].map((c) => (
             <div key={c.big} className={`rounded-xl border p-6 ${card}`}>
-              <div className="text-3xl font-bold text-sky-500 mb-2">{c.big}</div>
+              <div className="text-3xl font-bold text-primary mb-2">{c.big}</div>
               <p className={`text-sm leading-relaxed ${muted}`}>{c.text}</p>
             </div>
           ))}
@@ -163,9 +167,9 @@ export default function FolioflightPage() {
       <Section kicker="Features" title="What it does">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className={`rounded-xl border p-6 transition-colors hover:border-sky-500/50 ${card}`}>
-              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg mb-4 ${isDarkMode ? "bg-sky-500/10" : "bg-sky-50"}`}>
-                <Icon className="w-5 h-5 text-sky-500" />
+            <div key={title} className={`rounded-xl border p-6 transition-colors hover:border-primary/50 ${card}`}>
+              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg mb-4 bg-primary/10 border border-primary/30`}>
+                <Icon className="w-5 h-5 text-primary" />
               </div>
               <h3 className={`font-semibold mb-2 ${heading}`}>{title}</h3>
               <p className={`text-sm leading-relaxed ${muted}`}>{desc}</p>
@@ -178,17 +182,17 @@ export default function FolioflightPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {pipeline.map(({ icon: Icon, title, desc }, i) => (
             <div key={title} className={`relative rounded-xl border p-6 ${card}`}>
-              <Icon className="w-6 h-6 text-sky-500 mb-3" />
+              <Icon className="w-6 h-6 text-primary mb-3" />
               <h3 className={`font-semibold mb-2 ${heading}`}>{title}</h3>
               <p className={`text-sm leading-relaxed ${muted}`}>{desc}</p>
               {i < pipeline.length - 1 && (
-                <ChevronRight className="hidden md:block absolute top-1/2 -right-4 -translate-y-1/2 w-6 h-6 text-sky-500/60" />
+                <ChevronRight className="hidden md:block absolute top-1/2 -right-4 -translate-y-1/2 w-6 h-6 text-primary/60" />
               )}
             </div>
           ))}
         </div>
         <p className={`mt-6 max-w-3xl flex gap-2 ${muted}`}>
-          <Sparkles className="w-5 h-5 text-sky-500 shrink-0 mt-0.5" />
+          <Sparkles className="w-5 h-5 text-primary shrink-0 mt-0.5" />
           Each step runs only if the one before it isn't sure. Nothing is sent to a cloud model. The answer always comes from
           your profile, your saved answers or a fix you taught it.
         </p>
@@ -199,8 +203,8 @@ export default function FolioflightPage() {
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {privacyPoints.map((p) => (
               <li key={p} className="flex gap-3">
-                <Lock className="w-5 h-5 text-sky-500 shrink-0 mt-0.5" />
-                <span className={isDarkMode ? "text-slate-300" : "text-gray-700"}>{p}</span>
+                <Lock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-foreground">{p}</span>
               </li>
             ))}
           </ul>
@@ -208,7 +212,7 @@ export default function FolioflightPage() {
             The only network requests: the matching model, downloaded once from Hugging Face, and public job-posting data from
             Greenhouse, Lever, Ashby and Workday. The request contains only the job's ID.
           </p>
-          <a href={PRIVACY_URL} className="inline-flex items-center gap-2 font-semibold text-sky-500 hover:text-sky-400">
+          <a href={PRIVACY_URL} className="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary/80">
             Read the full privacy policy <ExternalLink className="w-4 h-4" />
           </a>
         </div>
@@ -248,10 +252,10 @@ export default function FolioflightPage() {
           <h2 className={`text-2xl sm:text-3xl font-bold mb-4 ${heading}`}>Fill once, fix once.</h2>
           <p className={`mb-8 ${muted}`}>Folioflight is heading to the Chrome Web Store. Want to talk about it, or about building something similar?</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button onClick={() => navigate("/")} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold bg-sky-600 text-white hover:bg-sky-500 transition-colors">
+            <button onClick={() => navigate("/")} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold press bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
               <ArrowLeft className="w-5 h-5" /> More projects
             </button>
-            <a href={PRIVACY_URL} className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border hover:border-sky-500 transition-colors ${chip}`}>
+            <a href={PRIVACY_URL} className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border hover:border-primary transition-colors ${chip}`}>
               <Shield className="w-5 h-5" /> Privacy policy
             </a>
           </div>
