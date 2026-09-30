@@ -112,11 +112,11 @@ const PortfolioPage: React.FC = () => {
     },
     {
       title: 'Transcript Extractor',
-      description: 'A privacy-first Chrome extension (Manifest V3) that pulls course transcripts in one click and exports them as TXT, Markdown, JSON, or RAG-ready format. Handles batch extraction across whole courses with live progress tracking — Udemy today, with Coursera, YouTube and edX next.',
+      description: "A local-first Chrome extension that turns video lectures into searchable, annotated study notes. Cleans captions from Udemy, Coursera, YouTube and most HTML5 lecture players, adds highlights, notes and screenshots at exact timestamps, searches every course by meaning, and exports to 10 formats. No network requests and no LLM: statistics first, Chrome's on-device AI optional.",
       demo: 'https://chromewebstore.google.com/detail/transcript-extractor/fjohldgflidaghednclaijiafmchlnbh',
       github: 'https://github.com/pras-ops/udemy-transcript-extractor',
       route: '/transcript-extractor',
-      tech: ['React 19', 'TypeScript', 'Chrome APIs', 'Manifest V3'],
+      tech: ['React 19', 'TypeScript', 'Manifest V3', 'Model2Vec'],
       category: 'Web Extension',
       icon: FileText
     },
