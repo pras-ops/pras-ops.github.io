@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import PortfolioPage from './components/generated/PortfolioPage';
 import TranscriptExtractorPage from './components/TranscriptExtractorPage';
 import LLMPreprocessorPage from './components/LLMPreprocessorPage';
+import FolioflightPage from './components/FolioflightPage';
 import BlogPostPage from './components/BlogPostPage';
 import WebScrapingResiliencePage from './components/WebScrapingResiliencePage';
 import StrategicScrapingPage from './components/StrategicScrapingPage';
 import CagPage from './components/CagPage';
 import BrowserPiiShieldPage from './components/BrowserPiiShieldPage';
 import ScrapeWizardPage from './components/ScrapeWizardPage';
-
+import { ThemeProvider } from './settings/theme';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -25,13 +26,14 @@ function ScrollToTop() {
 function App() {
   const generatedComponent = useMemo(() => {
     return (
-
+      <ThemeProvider>
         <Router>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<PortfolioPage />} />
             <Route path="/transcript-extractor" element={<TranscriptExtractorPage />} />
             <Route path="/llm-preprocessor" element={<LLMPreprocessorPage />} />
+            <Route path="/folioflight" element={<FolioflightPage />} />
             <Route path="/cag" element={<CagPage />} />
             <Route path="/browser-pii-shield" element={<BrowserPiiShieldPage />} />
             <Route path="/scrape-wizard" element={<ScrapeWizardPage />} />
@@ -40,7 +42,7 @@ function App() {
             <Route path="/blog/strategic-web-scraping" element={<StrategicScrapingPage />} />
           </Routes>
         </Router>
-
+      </ThemeProvider>
     );
   }, []);
 

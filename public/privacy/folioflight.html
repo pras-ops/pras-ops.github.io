@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folioflight Privacy Policy</title>
+<link rel="icon" type="image/png" href="/images/folioflight/icon-128.png">
+<style>
+:root { color-scheme: light dark; --bg: #f7f8fc; --fg: #172033; --muted: #5a6680; --line: #dde3ee; --accent: #2456d6; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0f1526; --fg: #e4e9f5; --muted: #9aa6c2; --line: #28324c; --accent: #86a6ff; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 "Segoe UI", system-ui, -apple-system, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 40px 20px 64px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 19px; margin: 32px 0 6px; }
+.updated { color: var(--muted); margin: 0 0 20px; }
+.short { border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; }
+.short b { display: block; margin-bottom: 4px; }
+.crumb { margin: 0 0 24px; font-size: 14px; color: var(--muted); } a { color: var(--accent); }
+ul { padding-left: 22px; } li { margin: 3px 0; }
+</style></head>
+<body><main>
+<p class="crumb"><a href="/folioflight">Folioflight</a> · a project by <a href="/">Prashant Jacob</a></p>
+<h1>Folioflight Privacy Policy</h1>
+<p class="updated">Last updated: 2026-09-30</p>
+<div class="short"><b>In short</b><ul><li>Your profile, resumes, answers and application history stay in your browser.</li><li>Matching runs on your computer. No cloud AI.</li><li>The only downloads: the matching model (once, from Hugging Face) and public job-posting data.</li><li>It never submits, never sends email, never invents answers.</li><li>Nothing runs on LinkedIn unless you turn quiet mode off.</li></ul></div>
+<h2>Who we are and what this covers</h2>
+<p>Folioflight is a Chrome extension that fills job application forms from a profile you keep, records which resume version you sent, and keeps a board of your applications up to date from your email. This policy describes exactly what data it reads, where that data is kept, and every network connection it makes.</p>
+<p>There is no Folioflight server, account or sign-in. The developer does not receive any of your data.</p>
+<h2>Where your data is kept</h2>
+<p>Everything you enter or the extension records is stored on your computer, in this browser profile’s extension storage (chrome.storage.local and IndexedDB):</p>
+<ul>
+<li>your profile (contact details, address, work history, education, screening answers, optional self-identification answers, references, photo if you add one);</li>
+<li>your resume and cover-letter files and the text read from them;</li>
+<li>saved answers, “fix this field” rules, and answers learned from what you type into forms;</li>
+<li>your applications (company, role, status, dates, notes, saved job postings, contacts, interviews);</li>
+<li>email suggestions waiting for your confirmation (sender, subject, preview text, detected status);</li>
+<li>job pages you opened on job sites (address, company, title, date) — used for “reposted” and “already applied” warnings;</li>
+<li>which job sites you created accounts on and the email address you used (never passwords);</li>
+<li>diagnostics about filling (per site: counts of fields found, filled and failed, the question text of fields that failed — never your values);</li>
+<li>fields you report with “Report a miss”: the field’s markup and question, with your values and profile text removed. They leave your computer only if you export the file and send it yourself.</li>
+</ul>
+<p>Uninstalling the extension deletes all of it. Settings → Danger zone deletes it without uninstalling.</p>
+<h2>Every network connection the extension makes</h2>
+<ul>
+<li>The matching model: the first time local AI matching is used, the model files (Xenova/all-MiniLM-L6-v2, about 23 MB) are downloaded once from huggingface.co and cached in the browser. Only the files are requested; none of your data is sent. You can turn local AI off in Settings.</li>
+<li>Public job-posting data: when you open a job on Greenhouse, Lever or Ashby, the extension asks that site’s public API (boards-api.greenhouse.io, api.lever.co, api.ashbyhq.com) for the posting’s text and publication date, and on Workday it asks the same Workday site for the posting’s public JSON. The request contains only the job’s identifier from the page address.</li>
+</ul>
+<p>Nothing else. There are no analytics, no crash reporting, no advertising, and no remote code: all program code is inside the extension package.</p>
+<p>Separately, Chrome may download its own built-in model (Gemini Nano) if you ask it to in Settings → Local AI; that download is handled by Chrome, and the model runs on your device.</p>
+<h2>What it reads on web pages, and why</h2>
+<ul>
+<li>Job application pages on the job-site platforms listed in the store listing (and, only if you allow it, other career sites): the form’s fields and their labels, to fill them; the job posting, to save it with your application; the button you click (Submit / Next), to mark the job applied and to check that filled values were kept; the email address you type when you create an account on a job site, so you know which email you used there. Password fields are never read.</li>
+<li>Gmail and Outlook on the web, only after you allow it: the sender, subject and preview text of messages in the list you are looking at, and the text of the email you open, to detect updates about your applications (received, interview, rejection, offer…). This happens on your computer. Only messages that look job-related are kept, as suggestions, until you confirm or dismiss them. “Scan my inbox” (which you start) opens a Gmail search for application emails and reads the result list the same way. The extension never sends, deletes, moves or marks email.</li>
+<li>LinkedIn: nothing. Quiet mode is on by default; if you turn it off, LinkedIn pages are treated like other job sites.</li>
+</ul>
+<h2>Learning from what you type</h2>
+<p>When you type an answer into an application form yourself, the extension can remember it on your computer so the next form fills it (for example a profile field that was empty, or a custom question). You can undo each one, review them in the dashboard, or turn this off in Settings. It never learns from password, ID-number, bank, card, date-of-birth or signature fields.</p>
+<h2>What it never does</h2>
+<ul>
+<li>It never submits an application, clicks “Next”, sends an email, or posts anything for you.</li>
+<li>It never writes answers, cover letters or messages: the AI only chooses among information you already entered.</li>
+<li>It never sells, rents or shares your data, and never uses it for advertising, credit, lending or any purpose unrelated to the features described here.</li>
+</ul>
+<h2>Permissions and why each is needed</h2>
+<ul>
+<li>Access to job-site platforms (Workday, Greenhouse, Lever, iCIMS and the others listed): to read and fill application forms there.</li>
+<li>Access to boards-api.greenhouse.io, api.lever.co, api.ashbyhq.com: to save public posting text and dates (see above).</li>
+<li>storage, unlimitedStorage: to keep your profile, resume files and history on your computer.</li>
+<li>scripting, activeTab: to fill a form in the tab you are using when you press the toolbar button or keyboard shortcut.</li>
+<li>contextMenus: for “Folioflight: fix this field…” on right-click.</li>
+<li>alarms: for follow-up reminders, interview reminders and weekly backups.</li>
+<li>offscreen: to write the weekly backup file into the folder you picked.</li>
+<li>Optional, only when you turn the feature on: Gmail / Outlook (email tracking), other websites (company career sites), LinkedIn (if you turn quiet mode off), notifications (reminders), downloads (backups to your Downloads folder).</li>
+</ul>
+<h2>Backups</h2>
+<p>Backups are files written to a folder you choose, or to your Downloads folder. They stay on your computer (or wherever you move them). They contain everything listed under “Where your data is kept”, including resume files.</p>
+<h2>Chrome Web Store User Data Policy</h2>
+<p>Folioflight’s use of information complies with the Chrome Web Store User Data Policy, including the Limited Use requirements. Data is used only to provide the features described in this policy and shown in the extension, is not transferred to anyone, and is not used or read by the developer.</p>
+<h2>Children</h2>
+<p>Folioflight is a job-search tool and is not directed at children under 13.</p>
+<h2>Changes and contact</h2>
+<p>This policy was last updated on 2026-09-30. Changes are published with the extension (Dashboard → Privacy) and at the privacy policy address on its Chrome Web Store page.</p>
+<p>Questions: use the support contact on the extension’s Chrome Web Store page.</p>
+</main></body></html>

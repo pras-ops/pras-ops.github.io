@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Github, Linkedin, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, ArrowRight, Eye, Shield, Target, Server, Globe, Layers, FileText, Zap } from 'lucide-react';
+import { Github, Linkedin, Menu, X, ChevronDown, Code, Database, BarChart3, Brain, ArrowRight, Eye, Shield, Target, Server, Globe, Layers, FileText, Zap, Briefcase } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import HeroBackground from '../NetworkBackground';
 import TiltCard from '../TiltCard';
@@ -80,6 +80,16 @@ const PortfolioPage: React.FC = () => {
   ];
 
   const projects = [
+    {
+      title: 'Folioflight',
+      description: 'Chrome Extension — Private job-application autofill and tracker. Fills Workday, Greenhouse, Lever and 80+ job sites from your profile, tracks resume versions, and updates your board from email. Local AI only chooses among your own data.',
+      demo: '',
+      github: '',
+      route: '/folioflight',
+      tech: ['TypeScript', 'React', 'Chrome MV3', 'Local AI'],
+      category: 'Web Extension',
+      icon: Briefcase
+    },
     {
       title: 'Browser PII Shield',
       description: 'A privacy-first JavaScript SDK that redacts sensitive PII (emails, SSNs, credit cards, names) entirely client-side before prompts reach cloud LLMs — then restores the originals locally in the response. Reversible placeholder mapping, a one-line shielded fetch proxy, and hybrid regex + local-WebGPU-LLM redaction keep data on-device for HIPAA / GDPR / SOC2.',
@@ -408,7 +418,7 @@ const PortfolioPage: React.FC = () => {
 
                 {/* Other Projects - 3 Column Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {projects.filter(p => p.title !== 'Browser PII Shield').map((project, idx) => (
+                  {projects.slice(1).map((project, idx) => (
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 20 }}
@@ -423,9 +433,11 @@ const PortfolioPage: React.FC = () => {
                             <div className="p-3 rounded-lg bg-slate-800">
                               <project.icon size={24} className="text-primary" />
                             </div>
-                            <a href={project.github} target="_blank" rel="noreferrer" className="transition-colors text-muted-foreground hover:text-foreground">
-                              <Github size={20} />
-                            </a>
+                            {project.github && (
+                              <a href={project.github} target="_blank" rel="noreferrer" className="transition-colors text-muted-foreground hover:text-foreground">
+                                <Github size={20} />
+                              </a>
+                            )}
                           </div>
 
                           <h4 className="text-lg font-bold mb-2 text-white">{project.title}</h4>
