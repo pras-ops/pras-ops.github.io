@@ -6,7 +6,7 @@
   "homepage": "https://prashant-j.com",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/route-pages.mjs",
     "build:gh-pages": "npm run build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
