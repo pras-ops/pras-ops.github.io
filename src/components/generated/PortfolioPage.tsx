@@ -82,8 +82,8 @@ const PortfolioPage: React.FC = () => {
   const projects = [
     {
       title: 'Folioflight',
-      description: 'Chrome Extension — Private job-application autofill and tracker. Fills Workday, Greenhouse, Lever and 80+ job sites from your profile, tracks resume versions, and updates your board from email. Local AI only chooses among your own data.',
-      demo: '',
+      description: 'Chrome Extension — Private job-application autofill and tracker. Fills Workday, Greenhouse, Lever and 80+ job sites from your profile, tracks resume versions, and updates your board from email. Local AI only chooses among your own data. Live on the Chrome Web Store.',
+      demo: 'https://chromewebstore.google.com/detail/folioflight-%E2%80%94-private-aut/hjilobbnknlplgpijpfcbljnmafgfgic',
       github: '',
       route: '/folioflight',
       tech: ['TypeScript', 'React', 'Chrome MV3', 'Local AI'],

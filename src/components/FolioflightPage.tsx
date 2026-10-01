@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 const PRIVACY_URL = "/privacy/folioflight.html";
+const STORE_URL = "https://chromewebstore.google.com/detail/folioflight-%E2%80%94-private-aut/hjilobbnknlplgpijpfcbljnmafgfgic";
 
 const screenshots = [
   { src: "/images/folioflight/screenshot-1.png", caption: "Forms fill themselves: you review, then click Submit" },
@@ -114,15 +115,15 @@ export default function FolioflightPage() {
             They never write answers, never submit and never scan your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-            <span className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border cursor-default ${chip}`}>
-              <Chrome className="w-5 h-5" /> Chrome Web Store · coming soon
-            </span>
-            <a href={PRIVACY_URL} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold press bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+            <a href={STORE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold press bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+              <Chrome className="w-5 h-5" /> Add to Chrome · it's free
+            </a>
+            <a href={PRIVACY_URL} className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border hover:border-primary/50 transition-colors ${chip}`}>
               <Shield className="w-5 h-5" /> Privacy policy
             </a>
           </div>
           <div className="flex flex-wrap gap-2 justify-center">
-            {["v0.3.0", "Manifest V3", "100% local", "80+ job sites", "133 e2e checks"].map((t) => (
+            {["Live on the Chrome Web Store", "v0.3.0", "Manifest V3", "100% local", "80+ job sites", "133 e2e checks"].map((t) => (
               <span key={t} className={`text-xs sm:text-sm px-3 py-1 rounded-full border ${chip}`}>{t}</span>
             ))}
           </div>
@@ -250,14 +251,14 @@ export default function FolioflightPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className={`text-2xl sm:text-3xl font-bold mb-4 ${heading}`}>Fill once, fix once.</h2>
-          <p className={`mb-8 ${muted}`}>Folioflight is heading to the Chrome Web Store. Want to talk about it, or about building something similar?</p>
+          <p className={`mb-8 ${muted}`}>Folioflight is free on the Chrome Web Store. Install it, fill your profile once, and open any job application.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button onClick={() => navigate("/")} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold press bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+            <a href={STORE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold press bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+              <Chrome className="w-5 h-5" /> Add to Chrome
+            </a>
+            <button onClick={() => navigate("/")} className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border hover:border-primary/50 transition-colors ${chip}`}>
               <ArrowLeft className="w-5 h-5" /> More projects
             </button>
-            <a href={PRIVACY_URL} className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border hover:border-primary transition-colors ${chip}`}>
-              <Shield className="w-5 h-5" /> Privacy policy
-            </a>
           </div>
         </div>
       </section>
