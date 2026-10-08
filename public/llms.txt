@@ -26,8 +26,8 @@ A privacy-first Chrome extension (Manifest V3) that pulls course transcripts in 
 - Route: /transcript-extractor
 
 ### 4. ScrapeWizard
-An AI-powered CLI that analyzes websites and generates real Playwright web scrapers with built-in data quality checks. Features a premium FastAPI+React web dashboard, multi-tier offline self-healing, and a high-fidelity interactive flow recorder.
-- Tech Stack: Python, FastAPI, Playwright, React
+Point it at a page, get the data. No AI key needed. A Python CLI that finds the repeating data on a web page (product cards, table rows, listings), names the fields, and saves the data with a small YAML recipe that can be run again, edited by hand, or scheduled. Plain HTTP first, a browser only when the page needs JavaScript. Recipes report what changed since the last run and repair themselves when a site changes. AI help is optional.
+- Tech Stack: Python, Playwright (only when needed), YAML recipes
 - GitHub: https://github.com/pras-ops/ScrapeWizard
 - Route: /scrape-wizard
 

@@ -18,6 +18,10 @@ const meta = {
     title: 'Transcript Extractor · Lecture transcripts to study notes',
     description: 'A local-first Chrome extension that turns video lectures into searchable, annotated study notes. No account, no server, no network requests.',
   },
+  '/scrape-wizard': {
+    title: 'ScrapeWizard · Point it at a page, get the data',
+    description: 'A Python CLI that finds the repeating data on a web page, names the fields, and saves it with a small recipe you can run again. No AI key needed.',
+  },
 };
 
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);

@@ -122,13 +122,13 @@ const PortfolioPage: React.FC = () => {
     },
     {
       title: 'ScrapeWizard',
-      description: 'An AI-powered CLI that analyzes websites and generates real Playwright web scrapers with built-in data quality checks. Features a premium FastAPI+React web dashboard, multi-tier offline self-healing, a high-fidelity interactive flow recorder, isolated sandbox test automation for a11y & visual diffs, and zero lock-in Pytest exports.',
+      description: 'Point it at a page, get the data. No AI key needed. A Python CLI that finds the repeating data on a web page (product cards, table rows, listings), names the fields, and saves the data with a small YAML recipe you can run again. Plain HTTP first, a browser only when the page needs one. Recipes report what changed and repair themselves when a site changes.',
       demo: '',
       github: 'https://github.com/pras-ops/ScrapeWizard',
       route: '/scrape-wizard',
-      tech: ['Python', 'FastAPI', 'Playwright', 'React'],
-      category: 'AI-Powered CLI',
-      icon: Brain
+      tech: ['Python', 'CLI', 'YAML recipes', 'Playwright'],
+      category: 'Web Scraping CLI',
+      icon: Database
     }
   ];
 
